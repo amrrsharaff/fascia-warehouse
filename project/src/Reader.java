@@ -141,10 +141,10 @@ public class Reader {
     ArrayList<FasciaGroup> pickedFascias = new ArrayList<>();
     ArrayList<Sequencer> sequencers = new ArrayList<>();
 
-    File file1 = new File("/Users/ASharaf/group_0423/project/translation.csv");
-    File file2 = new File("/Users/ASharaf/group_0423/project/traversal_table.csv");
-    File file3 = new File("/Users/ASharaf/group_0423/project/initial.csv");
-    File file4 = new File("/Users/ASharaf/group_0423/project/16orders.txt");
+    File file1 = new File("../translation.csv");
+    File file2 = new File("../traversal_table.csv");
+    File file3 = new File("../initial.csv");
+    File file4 = new File("../16orders.txt");
 
     // Makes all possible fascias in warehouse
     reader.readFascias(file1, fascias);
