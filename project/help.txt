@@ -9,3 +9,4 @@ NOTES:
 2- The numbers in the 16orders.txt file represent the fascia number to be picked not the SKU.
 3- To trigger an error in the code, you can change the number picked by the picker to another number between 1 and 8 inclusively. If you change the numbers to some numbers outside the scope the program might not work.
 4- The system involves only one loader since the warehouse only needs one loader which will use the forklift to carry the fascias into the truck.
+5- Make sure that you have the Java unit library files downloaded before you run the tests.
