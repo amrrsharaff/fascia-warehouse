@@ -1,0 +1,19 @@
+The duties of the members.
+Syed Naqvi:
+1) Participation in the discussion of the direction of the project. 
+2) Wrote the initial copy of Fascia.java, Sequencer.java, Order.java, and Replenisher.java. 
+3) Debugging and fixes to all the classes with Amr. 
+4) Wrote docstrings for all the classes.
+5) Wrote some of the comments for the classes.
+6) Made the UML.
+
+Amr Sharaf: 
+1) Participation in the discussion of the direction of the project. 
+2) Wrote the initial copy of Picker.java, Loader.java, FasciaGroup.java, and Reader.java.
+3) Debugging and fixes to all the classes.
+4) Wrote some of the comments for the classes. 
+5) Made appropriate print statments for events.
+6) Made all the tests. 
+7) Made help.txt.
+
+Omar Sherif: 
