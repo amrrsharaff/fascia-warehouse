@@ -223,7 +223,7 @@ public class Reader {
                 if (toBePicked.getOrderFascia().get(indexOfFascia).getSku()
                     .equals(toBePickedFascia.getSku())) {
                   System.out.println("System: Fascia picked the right one");
-                } else { //The system says that the picker picked the wrong fascias
+                } else { // The system says that the picker picked the wrong fascias
                   // Pick the 9th time!!!!!!!!!!!!!!!!;osdn;skn;k
 
 
@@ -252,6 +252,7 @@ public class Reader {
                                                    // Sequencer
           Sequencer sequencer = new Sequencer("Default");
           if (parts[2].equals("ready")) {
+            int groupNumber = 0;
             boolean found = false;
             // check to see if the sequencer already exists
             for (Sequencer oldSequencer : sequencers) {
@@ -260,10 +261,21 @@ public class Reader {
               }
             }
             if (!found) {
-              // if they don't exist, introduce a new sequencer
-              // and assign the job to him
+           // if they don't exist, introduce a new sequencer
               sequencer = new Sequencer(parts[1]);
               sequencers.add(sequencer);
+            }
+            for(FasciaGroup tobeSequenced: pickedFascias){
+              if(tobeSequenced.isSequenced() == false){
+                groupNumber = tobeSequenced.getRequestId();
+                break;
+              }
+            }
+            for(Order order: groups){
+              if(order.getRequestId() == groupNumber){
+                Order orderSequenced = order;
+                sequencer.setToBeSequenced(orderSequenced);
+              }
             }
             System.out.println("Sequencer " + parts[1] + " is ready");
 
