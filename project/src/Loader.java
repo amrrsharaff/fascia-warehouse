@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * A loader in the system. The loader's job is to load pallets onto the truck.
  */
@@ -23,5 +25,26 @@ public class Loader {
 
         }
         System.out.println("Picking request number " + group.getRequestId() + " was loaded");
+    }
+    
+    /**
+     * Rescans a fascia and finds it in the database using the sku number. 
+     * 
+     * @param sku
+     * 		The SKU number of the fascia that was rescanned.
+     * @param allFascia
+     * 		All the fascia in the warehouse.
+     * @return
+     * 		The fascia whose SKU matches with the given SKU.
+     */
+    public Fascia rescan(String sku, ArrayList<Fascia> allFascia){
+  	  // We know the if statement will be accessed because something not in the warehouse, cannot be scanned.
+  	  Fascia correctFascia = null;
+  	  for(Fascia fascia: allFascia){
+  		  if(sku.equals(fascia.getSku())){
+  			  correctFascia = fascia;
+  		  }
+  	  }  
+  	  return correctFascia;
     }
 }
