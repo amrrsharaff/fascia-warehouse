@@ -136,6 +136,12 @@ public class Reader {
   }
 
   public static void main(String[] args) {
+    String path;
+    if (args.length != 0) { // use the first argument from the command line. 
+        path = args[0];
+    } else { // follow the standard event file
+        path = "D:/Documents/group_0423/project/16orders.txt";
+    }
     Reader reader = new Reader();
     int nextGroup = 0;
     ArrayList<Order> groups = new ArrayList<>();
@@ -149,7 +155,7 @@ public class Reader {
     File file1 = new File("D:/Documents/group_0423/project/translation.csv");
     File file2 = new File("D:/Documents/group_0423/project/traversal_table.csv");
     File file3 = new File("D:/Documents/group_0423/project/initial.csv");
-    File file4 = new File("D:/Documents/group_0423/project/16orders.txt");
+    File file4 = new File(path);
 
     // Makes all possible fascias in warehouse
     reader.readFascias(file1, fascias);
