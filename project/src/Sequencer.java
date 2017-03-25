@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 
 /**
@@ -10,12 +9,18 @@ public class Sequencer {
   private String name;
   /** The inventory of the sequencer. */
   private ArrayList<Fascia> sequencedFascias = new ArrayList<Fascia>();
+  /** The fascias to be sequenced. */
+  private Order toBeSequenced;
 
   /**
    * Constructs a new Sequencer.
    */
   public Sequencer(String name) {
     this.name = name;
+  }
+
+  public void setToBeSequenced(Order toBeSequenced) {
+    this.toBeSequenced = toBeSequenced;
   }
 
   public ArrayList<Fascia> getFascias() {
