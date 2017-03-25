@@ -242,11 +242,15 @@ public class Reader {
           }
         } else if (parts[0].equals("Replenisher")) { // if it's a
                                                      // Replenisher
-          // Replenish at the given location
-          String location = parts[3] + parts[4] + parts[5] + parts[6];
-          Replenisher replenisher = new Replenisher();
-          replenisher.replenish(location, fascias);
-          System.out.println(parts[1] + " replenished fascia at " + location);
+          if (parts[2].equals("ready")){
+        	  System.out.println("Replenisher " + parts[1] + " is ready.");
+          } else {
+	          // Replenish at the given location
+	          String location = parts[3] + parts[4] + parts[5] + parts[6];
+	          Replenisher replenisher = new Replenisher();
+	          replenisher.replenish(location, fascias);
+	          System.out.println(parts[1] + " replenished fascia at " + location);
+          }
         } else if (parts[0].equals("Sequencer")) { // if it's a
                                                    // Sequencer
           Sequencer sequencer = new Sequencer("Default");
