@@ -96,7 +96,7 @@ public class Reader {
    * @param pickedFascias the 8 fascias picked by the picker.
    * @param groups all the orders currently in the system.
    * @param sequencer the sequencer to sequence the pickedFascias.
-   * @param picker the picker who picked the fascias.
+   * @param picker the picker who will pick the fascia in case there is a mistake.
    */
   public void requestSequencer(ArrayList<FasciaGroup> pickedFascias, ArrayList<Order> groups,
       Sequencer sequencer, Picker picker) {
@@ -131,6 +131,7 @@ public class Reader {
         }
         group.setSequenced(true);
       }
+      break;
     }
   }
 
@@ -222,7 +223,7 @@ public class Reader {
                 if (toBePicked.getOrderFascia().get(indexOfFascia).getSku()
                     .equals(toBePickedFascia.getSku())) {
                   System.out.println("System: Fascia picked the right one");
-                } else {
+                } else { //The system says that the picker picked the wrong fascias
                   // Pick the 9th time!!!!!!!!!!!!!!!!;osdn;skn;k
 
 
