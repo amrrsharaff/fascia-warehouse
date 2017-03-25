@@ -64,27 +64,11 @@ public class Picker {
      * @param index the index of orders at which the fascia needed to be picked is located.
      * @param allFascias the list of all fascias currently in the system.
      */
-    public void pickFascia(Order orders, int index, ArrayList<Fascia> allFascias) {
+    public void pickFascia(String sku, ArrayList<Fascia> allFascias) {
         ready = false;
-        boolean type;
-        String colour;
-        String model;
-        ArrayList<String> order;
-        int orderNumber = (int) Math.ceil((float) index / 2);
-        if ((index % 2) == 0) { // even
-            type = false;
-        } else { // odd
-            type = true;
-        }
-        // we get the order number
-        order = orders.getFourOrders().get(orderNumber - 1);
-        // we get the colour and model of the order
-        colour = order.get(1);
-        model = order.get(0);
         // we search for the fascia inside the order
         for (Fascia fascia : allFascias) {
-            if (fascia.getColour().equals(colour) && fascia.getModelNumber().equals(model)
-                    && fascia.isFront() == type) {
+            if (fascia.getSku().equals(sku)) {
                 fascia.fasciaCount -= 1;
                 if (fascia.fasciaCount <= 5) {
                     Replenisher replenisher = new Replenisher();
