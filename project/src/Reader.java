@@ -385,9 +385,11 @@ public class Reader {
             System.out.println("System: Loader " + loader.getName() + ", load the picking request with id " + loader.getToBeLoaded().getRequestId() + ".");
             loader.load();
           } else if (parts[2].equals("scans")) {
-            loader.rescan(parts[3], fascias);
+            System.out.println("System: Loader " + loader.getName() + ", scan the fascia with SKU " + parts[3] + ".");
+            loader.rescan(parts[3], fascias, pickers.get(0));
           } else if (parts[2].equals("rescans")) {
-            loader.rescan(parts[3], fascias);
+            System.out.println("System: Loader " + loader.getName() + ", rescan the fascia with SKU " + parts[3] + ".");
+            loader.rescan(parts[3], fascias, pickers.get(0));
           }
         }
       }

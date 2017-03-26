@@ -14,8 +14,10 @@ public class Loader {
     this.name = name;
   }
 
-  /** The fascias to be sequenced. */
+  /** The order to be loaded */
   private Order toBeLoaded;
+  /** The skus to be scanned/rescanned */
+  private ArrayList<String> rescannedSKUs;
     /**
      * Initializes a loader.
      */
@@ -33,25 +35,28 @@ public class Loader {
         System.out.println("Loader " + this.name + ": Picking request with id " + this.getToBeLoaded().getRequestId() + " is loaded.");
     }
     
-    /**
-     * Rescans a fascia and finds it in the database using the sku number. 
-     * 
+    /** 
+     * @param picker
+     *      The picker who would repick the misplaced fascia had there been any mistake in scanning.
      * @param sku
-     * 		The SKU number of the fascia that was rescanned.
+     * 		The SKU number of the fascia that is to be scanned
      * @param allFascia
      * 		All the fascia in the warehouse.
-     * @return
-     * 		The fascia whose SKU matches with the given SKU.
      */
-    public Fascia rescan(String sku, ArrayList<Fascia> allFascia){
-  	  // We know the if statement will be accessed because something not in the warehouse, cannot be scanned.
-  	  Fascia correctFascia = null;
-  	  for(Fascia fascia: allFascia){
-  		  if(sku.equals(fascia.getSku())){
-  			  correctFascia = fascia;
-  		  }
-  	  }  
-  	  return correctFascia;
+    public void rescan(String sku, ArrayList<Fascia> allFascia, Picker picker){
+      int index = rescannedSKUs.size();
+      ArrayList<Fascia> fascias = toBeLoaded.getOrderFascia();
+      if(fascias.get(index).getSku().equals(sku)){
+        System.out.println("Sequencer " + this.name + ": Fascia with SKU " + sku + " scanned.");
+        rescannedSKUs.add(sku);
+      } else{
+        System.out.println("Loader " + this.name + ": Fascia with SKU " + sku + " scanned.");
+        System.out.println("System: Fascias unmatched, there was an error in picking.");
+        System.out.println("System: Fascia with SKU " + fascias.get(index).getSku() + " was incorrectly replaced by Fascia with SKU " + sku + ".");
+        System.out.println("System: Picker " + picker.getName() + ", repick the Fascia with SKU " + fascias.get(index).getSku() + ".");
+        System.out.println("Picker " + picker.getName() + ": Fascia with SKU " + fascias.get(index).getSku() + " repicked.");
+        rescannedSKUs.add(fascias.get(index).getSku());
+      }
     }
 
     public Order getToBeLoaded() {
@@ -61,4 +66,13 @@ public class Loader {
     public void setToBeLoaded(Order toBeLoaded) {
       this.toBeLoaded = toBeLoaded;
     }
+
+    public ArrayList<String> getRescannedSKUs() {
+      return rescannedSKUs;
+    }
+
+    public void setRescannedSKUs(ArrayList<String> rescannedSKUs) {
+      this.rescannedSKUs = rescannedSKUs;
+    }
+
 }
