@@ -140,7 +140,7 @@ public class Reader {
     if (args.length != 0) { // use the first argument from the command line.
       path = args[0];
     } else { // follow the standard event file
-      path = "D:/Documents/group_0423/project/16orders.txt";
+      path = "../16orders.txt";
     }
     Reader reader = new Reader();
     int nextGroup = 0;
@@ -152,9 +152,9 @@ public class Reader {
     ArrayList<Sequencer> sequencers = new ArrayList<>();
     ArrayList<Loader> loaders = new ArrayList<>();
 
-    File file1 = new File("D:/Documents/group_0423/project/translation.csv");
-    File file2 = new File("D:/Documents/group_0423/project/traversal_table.csv");
-    File file3 = new File("D:/Documents/group_0423/project/initial.csv");
+    File file1 = new File("../translation.csv");
+    File file2 = new File("../traversal_table.csv");
+    File file3 = new File("../initial.csv");
     File file4 = new File(path);
 
     // Makes all possible fascias in warehouse
@@ -224,14 +224,13 @@ public class Reader {
                     toBePickedFascia = fascia;
                   }
                 }
-                int indexOfFascia = oldPicker.getFascias().size() - 1;
+                int indexOfFascia = oldPicker.getFascias().size();
                 if (toBePicked.getOrderFascia().get(indexOfFascia).getSku()
                     .equals(toBePickedFascia.getSku())) {
                   // picking happens here or else statement
                   oldPicker.pickFascia(parts[3], fascias);
                   System.out.println("System: Picked the correct fascia");
                 } else { // The system says that the picker picked the wrong fascias
-                  // Pick the 9th time!!!!!!!!!!!!!!!!;osdn;skn;k
                   System.out.println("System: Picker " + parts[1] + " picked the wrong fascia.");
                   System.out.println("System: The correct fascia to pick has SKU: "
                       + toBePicked.getOrderFascia().get(indexOfFascia).getSku());
@@ -382,13 +381,17 @@ public class Reader {
             System.out.println("Loader " + parts[1] + " is ready");
 
           } else if (parts[2].equals("loads")) {
-            System.out.println("System: Loader " + loader.getName() + ", load the picking request with id " + loader.getToBeLoaded().getRequestId() + ".");
+            System.out.println(
+                "System: Loader " + loader.getName() + ", load the picking request with id "
+                    + loader.getToBeLoaded().getRequestId() + ".");
             loader.load();
           } else if (parts[2].equals("scans")) {
-            System.out.println("System: Loader " + loader.getName() + ", scan the fascia with SKU " + parts[3] + ".");
+            System.out.println("System: Loader " + loader.getName() + ", scan the fascia with SKU "
+                + parts[3] + ".");
             loader.rescan(parts[3], fascias, pickers.get(0));
           } else if (parts[2].equals("rescans")) {
-            System.out.println("System: Loader " + loader.getName() + ", rescan the fascia with SKU " + parts[3] + ".");
+            System.out.println("System: Loader " + loader.getName()
+                + ", rescan the fascia with SKU " + parts[3] + ".");
             loader.rescan(parts[3], fascias, pickers.get(0));
           }
         }

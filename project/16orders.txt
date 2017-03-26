@@ -6,56 +6,88 @@ Picker Alice ready
 Order S Beige
 Order SES Green
 Order SE White
-Picker Alice pick 1
+Picker Alice pick 37
 Order SE Black
-Picker Alice pick 2
-Picker Alice pick 3
+Picker Alice pick 38
+Picker Alice pick 21
 Order SE Black
 Order S Black
 Order SES Black
 Order S White
 Picker Bob ready
-Picker Alice pick 4
-Picker Bob pick 1
-Picker Alice pick 5
-Picker Bob pick 2
+Picker Alice pick 22
+Picker Bob pick 9
+Picker Alice pick 43
+Picker Bob pick 10
 Order SES Black
+Picker Bob pick 29
+Picker Alice pick 44
+Picker Bob pick 30
 Picker Bob pick 3
-Picker Alice pick 6
-Picker Bob pick 4
-Picker Bob pick 5
-Picker Alice pick 7
+Picker Alice pick 43
 Order SE Blue
-Picker Alice pick 7
+Picker Alice pick 44
 Order S Black
-Picker Bob pick 6
-Picker Bob pick 7
-Picker Alice ready
-Picker Alice pick 1
-Sequencer Sue sequences
-Picker Alice pick 2
-Loader Bill loads
-Order S Black
-Picker Bob pick 8
-Picker Alice pick 3
-Picker Alice pick 4
-Picker Bob ready
-Picker Alice pick 5
-Picker Bob pick 1
-Picker Bob pick 2
-Picker Alice pick 6
-Picker Bob pick 3
-Sequencer Heather sequences
 Picker Bob pick 4
-Picker Alice pick 7
+Picker Bob pick 43
+Picker Alice ready
+Picker Alice pick 43
+Sequencer Sue ready
+Sequencer Sue sequences 37
+Sequencer Sue sequences 38
+Sequencer Sue sequences 21
+Sequencer Sue sequences 22
+Sequencer Sue sequences 43
+Sequencer Sue sequences 44
+Sequencer Sue sequences 43
+Sequencer Sue sequences 44
+Picker Alice pick 44
 Loader Bill loads
-Picker Alice pick 8
-Picker Bob pick 5
-Picker Bob pick 6
-Sequencer Sue sequences
-Picker Bob pick 7
+Order S Black
+Picker Bob pick 44
+Picker Alice pick 41
+Picker Alice pick 42
+Picker Bob ready
+Picker Alice pick 45
+Picker Bob pick 45
+Picker Bob pick 46
+Picker Alice pick 46
+Picker Bob pick 35
+Sequencer Heather ready
+Sequencer Heather sequences 9
+Sequencer Heather sequences 10
+Sequencer Heather sequences 29
+Sequencer Heather sequences 30
+Sequencer Heather sequences 3
+Sequencer Heather sequences 4
+Sequencer Heather sequences 43
+Sequencer Heather sequences 44
+Picker Bob pick 36
+Picker Alice pick 1
+Loader Bill loads
+Picker Alice pick 2
+Picker Bob pick 41
+Picker Bob pick 42
+Sequencer Sue ready
+Sequencer Sue sequences 43
+Sequencer Sue sequences 44
+Sequencer Sue sequences 41
+Sequencer Sue sequences 42
+Sequencer Sue sequences 45
+Sequencer Sue sequences 46
+Sequencer Sue sequences 1
+Sequencer Sue sequences 2
+Picker Bob pick 41
 Replenisher Ruby replenish A 1 1 2
-Picker Bob pick 8
+Picker Bob pick 42
 Loader Bill loads
-Sequencer Sue sequences
+Sequencer Heather ready
+Sequencer Heather sequences 45
+Sequencer Heather sequences 46
+Sequencer Heather sequences 35
+Sequencer Heather sequences 36
+Sequencer Heather sequences 41
+Sequencer Heather sequences 42
+Sequencer Heather sequences 41
+Sequencer Heather sequences 42
 Loader Bill loads
