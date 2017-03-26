@@ -273,6 +273,7 @@ public class Reader {
             for (Sequencer oldSequencer : sequencers) {
               if (oldSequencer.getName().equals(parts[1])) {
                 found = true;
+                sequencer = oldSequencer;
               }
             }
             if (!found) {
@@ -293,6 +294,7 @@ public class Reader {
                 sequencer.setToBeSequenced(orderSequenced);
               }
             }
+            System.out.println("The group number assigned is "+ sequencer.getToBeSequenced().getRequestId());
             System.out.println("Sequencer " + parts[1] + " is ready");
 
           } else if (parts[2].equals("sequences")) {
@@ -306,9 +308,11 @@ public class Reader {
                 sequencer.getToBeSequenced().getOrderFascia().get(sequencer.getFascias().size());
             if (parts[3].equals(fasciaSeq.getSku())) {
               sequencer.getFascias().add(fasciaSeq);
+              System.out.println("Sequencer " + sequencer.getName() + " sequenced fascia with sku " + fasciaSeq.getSku());
             } else {
               sequencer.getFascias().add(fasciaSeq);
               sequencer.setCorrect(false);
+              System.out.println("Sequencer " + sequencer.getName() + " sequenced fascia with sku " + fasciaSeq.getSku());
             }
             if (sequencer.getFascias().size() == 8) {
               if (!sequencer.isCorrect()) {
@@ -358,6 +362,7 @@ public class Reader {
             for (Loader oldLoader : loaders) {
               if (oldLoader.getName().equals(parts[1])) {
                 found = true;
+                loader = oldLoader;
               }
             }
             if (!found) {
@@ -381,6 +386,11 @@ public class Reader {
             System.out.println("Loader " + parts[1] + " is ready");
 
           } else if (parts[2].equals("loads")) {
+            for (Loader oldLoader : loaders) {
+              if (oldLoader.getName().equals(parts[1])) {
+                loader = oldLoader;
+              }
+            }
             System.out.println(
                 "System: Loader " + loader.getName() + ", load the picking request with id "
                     + loader.getToBeLoaded().getRequestId() + ".");
