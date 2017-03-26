@@ -216,8 +216,7 @@ public class Reader {
                 // tell picker to pick fascia
                 Order toBePicked = groups.get(oldPicker.groupIndex);
                 toBePicked.findFascia(fascias);
-                // pick fascia
-                oldPicker.pickFascia(parts[3], fascias);
+                // pick fascia statement, actual picking happens after system confirmation.
                 System.out.println("Fascia with SKU number " + parts[3] + " was picked by picker "
                     + oldPicker.getName());
                 for (Fascia fascia : fascias) {
@@ -228,11 +227,17 @@ public class Reader {
                 int indexOfFascia = oldPicker.getFascias().size() - 1;
                 if (toBePicked.getOrderFascia().get(indexOfFascia).getSku()
                     .equals(toBePickedFascia.getSku())) {
-                  System.out.println("System: Fascia picked the right one");
+                  // picking happens here or else statement
+                  oldPicker.pickFascia(parts[3], fascias);
+                  System.out.println("System: Picked the correct fascia");
                 } else { // The system says that the picker picked the wrong fascias
                   // Pick the 9th time!!!!!!!!!!!!!!!!;osdn;skn;k
-
-
+                  System.out.println("System: Picker " + parts[1] + " picked the wrong fascia.");
+                  System.out.println("System: The correct fascia to pick has SKU: " + 
+                		  				toBePicked.getOrderFascia().get(indexOfFascia).getSku());
+                  oldPicker.pickFascia(toBePicked.getOrderFascia().get(indexOfFascia).getSku(), fascias);
+                  System.out.println("System: Mistake has been fixed, Picker " + parts[1] + 
+                		  " has picked the correct fascia.");
 
                 }
                 // if picker picked all 8 fascias
