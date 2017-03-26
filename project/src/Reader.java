@@ -340,14 +340,14 @@ public class Reader {
                 sequencer = oldSequencer;
               }
             }
-            //How to keep track of the orders
-            
+            sequencer.rescan(parts[3], fascias, pickers.get(0));
           }
 
         } else if (parts[0].equals("Loader")) { // load if it's a loader
           if (parts[2].equals("loads")) {
             for (FasciaGroup group : pickedFascias) {
               if (group.isSequenced() && (!group.isLoaded())) {
+                System.out.println("System: Loader " + parts[3] + " load Request ID "+  group.getRequestId());
                 loader.load(group);
               }
             }

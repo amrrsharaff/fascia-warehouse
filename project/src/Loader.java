@@ -24,7 +24,7 @@ public class Loader {
             System.out.println("Order " + order + " loaded");
 
         }
-        System.out.println("Picking request number " + group.getRequestId() + " was loaded");
+        System.out.println("Loader: Picking request number " + group.getRequestId() + " was loaded");
     }
     
     /**

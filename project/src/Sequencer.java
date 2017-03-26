@@ -11,7 +11,8 @@ public class Sequencer {
   private ArrayList<Fascia> sequencedFascias = new ArrayList<Fascia>();
   /** The fascias to be sequenced. */
   private Order toBeSequenced;
-  
+  /** The fascias to be rescanned. */
+  private ArrayList<String> rescannedSKUs = new ArrayList<String>();
   public void setSequencedFascias(ArrayList<Fascia> sequencedFascias) {
     this.sequencedFascias = sequencedFascias;
   }
@@ -78,18 +79,24 @@ public class Sequencer {
    * 
    * @param sku The SKU number of the fascia that was rescanned.
    * @param allFascia All the fascia in the warehouse.
-   * @return The fascia whose SKU matches with the given SKU.
+   * @param the picker who repicks the wrong fascia.
    */
-  public Fascia rescan(String sku, ArrayList<Fascia> allFascia) {
+  public void rescan(String sku, ArrayList<Fascia> allFascia, Picker picker) {
     // We know the if statement will be accessed because something not in the warehouse, cannot be
     // scanned.
-    Fascia correctFascia = null;
-    for (Fascia fascia : allFascia) {
-      if (sku.equals(fascia.getSku())) {
-        correctFascia = fascia;
-      }
+    int index = rescannedSKUs.size();
+    ArrayList<Fascia> fascias = toBeSequenced.getOrderFascia();
+    if(fascias.get(index).getSku().equals(sku)){
+      System.out.println("Sequencer " + this.name + ": Fascia with SKU " + sku + " rescanned.");
+      rescannedSKUs.add(sku);
+    } else{
+      System.out.println("Sequencer " + this.name + ": Fascia with SKU " + sku + " rescanned.");
+      System.out.println("System: Fascias unmatched, there was an error in picking.");
+      System.out.println("System: Fascia with SKU " + fascias.get(index).getSku() + " was incorrectly replaced by Fascia with SKU " + sku + ".");
+      System.out.println("System: Picker " + picker.getName() + ", repick the Fascia with SKU " + fascias.get(index).getSku() + ".");
+      System.out.println("Picker " + picker.getName() + ": Fascia with SKU " + fascias.get(index).getSku() + " repicked.");
+      rescannedSKUs.add(fascias.get(index).getSku());
     }
-    return correctFascia;
   }
 
   public String getName() {
