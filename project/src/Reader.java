@@ -294,6 +294,8 @@ public class Reader {
                 sequencer.setToBeSequenced(orderSequenced);
               }
             }
+            sequencer.setSequencedFascias(new ArrayList<Fascia>());
+            sequencer.setCorrect(true);
             System.out.println("The group number assigned is "+ sequencer.getToBeSequenced().getRequestId());
             System.out.println("Sequencer " + parts[1] + " is ready");
 
@@ -312,7 +314,6 @@ public class Reader {
             } else {
               sequencer.getFascias().add(fasciaSeq);
               sequencer.setCorrect(false);
-              System.out.println("Sequencer " + sequencer.getName() + " sequenced fascia with sku " + fasciaSeq.getSku());
             }
             if (sequencer.getFascias().size() == 8) {
               if (!sequencer.isCorrect()) {
