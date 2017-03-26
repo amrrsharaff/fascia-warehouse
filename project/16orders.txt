@@ -42,6 +42,7 @@ Sequencer Sue sequences 44
 Sequencer Sue sequences 43
 Sequencer Sue sequences 44
 Picker Alice pick 44
+Loader Bill ready
 Loader Bill loads
 Order S Black
 Picker Bob pick 44
@@ -64,6 +65,7 @@ Sequencer Heather sequences 43
 Sequencer Heather sequences 44
 Picker Bob pick 36
 Picker Alice pick 1
+Loader Bill ready
 Loader Bill loads
 Picker Alice pick 2
 Picker Bob pick 41
@@ -80,6 +82,7 @@ Sequencer Sue sequences 2
 Picker Bob pick 41
 Replenisher Ruby replenish A 1 1 2
 Picker Bob pick 42
+Loader Bill ready
 Loader Bill loads
 Sequencer Heather ready
 Sequencer Heather sequences 45
@@ -90,4 +93,5 @@ Sequencer Heather sequences 41
 Sequencer Heather sequences 42
 Sequencer Heather sequences 41
 Sequencer Heather sequences 42
+Loader Bill ready
 Loader Bill loads

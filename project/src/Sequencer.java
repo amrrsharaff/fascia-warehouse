@@ -19,6 +19,10 @@ public class Sequencer {
 
   private boolean correct;
 
+  public ArrayList<Fascia> getSequencedFascias() {
+    return sequencedFascias;
+  }
+
   /**
    * Constructs a new Sequencer.
    */
