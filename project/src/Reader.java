@@ -137,10 +137,10 @@ public class Reader {
 
   public static void main(String[] args) {
     String path;
-    if (args.length != 0) { // use the first argument from the command line. 
-        path = args[0];
+    if (args.length != 0) { // use the first argument from the command line.
+      path = args[0];
     } else { // follow the standard event file
-        path = "D:/Documents/group_0423/project/16orders.txt";
+      path = "D:/Documents/group_0423/project/16orders.txt";
     }
     Reader reader = new Reader();
     int nextGroup = 0;
@@ -249,14 +249,14 @@ public class Reader {
           }
         } else if (parts[0].equals("Replenisher")) { // if it's a
                                                      // Replenisher
-          if (parts[2].equals("ready")){
-        	  System.out.println("Replenisher " + parts[1] + " is ready.");
+          if (parts[2].equals("ready")) {
+            System.out.println("Replenisher " + parts[1] + " is ready.");
           } else {
-	          // Replenish at the given location
-	          String location = parts[3] + parts[4] + parts[5] + parts[6];
-	          Replenisher replenisher = new Replenisher();
-	          replenisher.replenish(location, fascias);
-	          System.out.println(parts[1] + " replenished fascia at " + location);
+            // Replenish at the given location
+            String location = parts[3] + parts[4] + parts[5] + parts[6];
+            Replenisher replenisher = new Replenisher();
+            replenisher.replenish(location, fascias);
+            System.out.println(parts[1] + " replenished fascia at " + location);
           }
         } else if (parts[0].equals("Sequencer")) { // if it's a
                                                    // Sequencer
@@ -271,18 +271,18 @@ public class Reader {
               }
             }
             if (!found) {
-           // if they don't exist, introduce a new sequencer
+              // if they don't exist, introduce a new sequencer
               sequencer = new Sequencer(parts[1]);
               sequencers.add(sequencer);
             }
-            for(FasciaGroup tobeSequenced: pickedFascias){
-              if(tobeSequenced.isSequenced() == false){
+            for (FasciaGroup tobeSequenced : pickedFascias) {
+              if (tobeSequenced.isSequenced() == false) {
                 groupNumber = tobeSequenced.getRequestId();
                 break;
               }
             }
-            for(Order order: groups){
-              if(order.getRequestId() == groupNumber){
+            for (Order order : groups) {
+              if (order.getRequestId() == groupNumber) {
                 Order orderSequenced = order;
                 sequencer.setToBeSequenced(orderSequenced);
               }
@@ -290,14 +290,58 @@ public class Reader {
             System.out.println("Sequencer " + parts[1] + " is ready");
 
           } else if (parts[2].equals("sequences")) {
+            int index = 0;
             for (Sequencer oldSequencer : sequencers) {
               if (oldSequencer.getName().equals(parts[1])) {
                 sequencer = oldSequencer;
               }
             }
-            reader.requestSequencer(pickedFascias, groups, sequencer, pickers.get(0));
-          } else if (parts[2].equals("rescan")) {
-            sequencer.rescan(parts[3], fascias);
+            Fascia fasciaSeq =
+                sequencer.getToBeSequenced().getOrderFascia().get(sequencer.getFascias().size());
+            if (parts[3].equals(fasciaSeq.getSku())) {
+              sequencer.getFascias().add(fasciaSeq);
+            } else {
+              sequencer.getFascias().add(fasciaSeq);
+              sequencer.setCorrect(false);
+            }
+            if (sequencer.getFascias().size() == 8) {
+              if (!sequencer.isCorrect()) {
+                System.out.println(
+                    "System: Orders with request ID " + sequencer.getToBeSequenced().getRequestId()
+                        + " were found to have an incorrect fascia received by " + "sequencer "
+                        + sequencer.getName() + ".");
+                System.out.println("System: This set of fascias are thrown away.");
+                for (FasciaGroup group : pickedFascias) {
+                  if (group.getRequestId() == sequencer.getToBeSequenced().getRequestId()) {
+                    index = pickedFascias.indexOf(group);
+                    pickedFascias.remove(group);
+                    FasciaGroup repickedGroup =
+                        new FasciaGroup(sequencer.getToBeSequenced().getOrderFascia(),
+                            sequencer.getToBeSequenced().getRequestId());
+                    pickedFascias.add(index, repickedGroup);
+                    sequencer.setSequencedFascias(sequencer.getToBeSequenced().getOrderFascia());
+                    System.out.println("System: Picker " + pickers.get(0).getName()
+                        + " repick Orders with request ID "
+                        + sequencer.getToBeSequenced().getRequestId());
+                    System.out.println("Picker " + pickers.get(0).getName()
+                        + ": Orders with request ID " + sequencer.getToBeSequenced().getRequestId()
+                        + " is now repicked correctly.");
+                    break;
+                  }
+                }
+              } else {
+                System.out.println("System: Orders with request ID "
+                    + sequencer.getToBeSequenced().getRequestId() + " are sequenced.");
+              }
+            }
+          } else if (parts[2].equals("rescans")) {
+            for (Sequencer oldSequencer : sequencers) {
+              if (oldSequencer.getName().equals(parts[1])) {
+                sequencer = oldSequencer;
+              }
+            }
+            //How to keep track of the orders
+            
           }
 
         } else if (parts[0].equals("Loader")) { // load if it's a loader
@@ -307,7 +351,7 @@ public class Reader {
                 loader.load(group);
               }
             }
-          } else if (parts[2].equals("rescan")) {
+          } else if (parts[2].equals("rescans")) {
             loader.rescan(parts[3], fascias);
           }
 

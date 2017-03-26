@@ -11,12 +11,19 @@ public class Sequencer {
   private ArrayList<Fascia> sequencedFascias = new ArrayList<Fascia>();
   /** The fascias to be sequenced. */
   private Order toBeSequenced;
+  
+  public void setSequencedFascias(ArrayList<Fascia> sequencedFascias) {
+    this.sequencedFascias = sequencedFascias;
+  }
+
+  private boolean correct;
 
   /**
    * Constructs a new Sequencer.
    */
   public Sequencer(String name) {
     this.name = name;
+    this.correct = true;
   }
 
   public void setToBeSequenced(Order toBeSequenced) {
@@ -25,6 +32,10 @@ public class Sequencer {
 
   public ArrayList<Fascia> getFascias() {
     return sequencedFascias;
+  }
+
+  public Order getToBeSequenced() {
+    return toBeSequenced;
   }
 
   /**
@@ -83,6 +94,14 @@ public class Sequencer {
 
   public String getName() {
     return name;
+  }
+
+  public boolean isCorrect() {
+    return correct;
+  }
+
+  public void setCorrect(boolean correct) {
+    this.correct = correct;
   }
 
 }
