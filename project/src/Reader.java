@@ -148,9 +148,9 @@ public class Reader {
     ArrayList<Fascia> fascias = new ArrayList<>();
     ArrayList<ArrayList<String>> orders = new ArrayList<>();
     ArrayList<Picker> pickers = new ArrayList<>();
-    Loader loader = new Loader();
     ArrayList<FasciaGroup> pickedFascias = new ArrayList<>();
     ArrayList<Sequencer> sequencers = new ArrayList<>();
+    ArrayList<Loader> loaders = new ArrayList<>();
 
     File file1 = new File("D:/Documents/group_0423/project/translation.csv");
     File file2 = new File("D:/Documents/group_0423/project/traversal_table.csv");
@@ -233,11 +233,12 @@ public class Reader {
                 } else { // The system says that the picker picked the wrong fascias
                   // Pick the 9th time!!!!!!!!!!!!!!!!;osdn;skn;k
                   System.out.println("System: Picker " + parts[1] + " picked the wrong fascia.");
-                  System.out.println("System: The correct fascia to pick has SKU: " + 
-                		  				toBePicked.getOrderFascia().get(indexOfFascia).getSku());
-                  oldPicker.pickFascia(toBePicked.getOrderFascia().get(indexOfFascia).getSku(), fascias);
-                  System.out.println("System: Mistake has been fixed, Picker " + parts[1] + 
-                		  " has picked the correct fascia.");
+                  System.out.println("System: The correct fascia to pick has SKU: "
+                      + toBePicked.getOrderFascia().get(indexOfFascia).getSku());
+                  oldPicker.pickFascia(toBePicked.getOrderFascia().get(indexOfFascia).getSku(),
+                      fascias);
+                  System.out.println("System: Mistake has been fixed, Picker " + parts[1]
+                      + " has picked the correct fascia.");
 
                 }
                 // if picker picked all 8 fascias
@@ -283,6 +284,7 @@ public class Reader {
             for (FasciaGroup tobeSequenced : pickedFascias) {
               if (tobeSequenced.isSequenced() == false) {
                 groupNumber = tobeSequenced.getRequestId();
+                tobeSequenced.setSequenced(true);
                 break;
               }
             }
@@ -349,21 +351,43 @@ public class Reader {
           }
 
         } else if (parts[0].equals("Loader")) { // load if it's a loader
-          if (parts[2].equals("loads")) {
-            for (FasciaGroup group : pickedFascias) {
-              if (group.isSequenced() && (!group.isLoaded())) {
-                System.out.println("System: Loader " + parts[3] + " load Request ID "+  group.getRequestId());
-                loader.load(group);
+          Loader loader = new Loader("Default");
+          if (parts[2].equals("ready")) {
+            int groupNumber = 0;
+            boolean found = false;
+            // check to see if the sequencer already exists
+            for (Loader oldLoader : loaders) {
+              if (oldLoader.getName().equals(parts[1])) {
+                found = true;
               }
             }
+            if (!found) {
+              // if they don't exist, introduce a new sequencer
+              loader = new Loader(parts[1]);
+              loaders.add(loader);
+            }
+            for (FasciaGroup tobeLoaded : pickedFascias) {
+              if (tobeLoaded.isLoaded() == false) {
+                groupNumber = tobeLoaded.getRequestId();
+                tobeLoaded.setLoaded(true);
+                break;
+              }
+            }
+            for (Order order : groups) {
+              if (order.getRequestId() == groupNumber) {
+                Order orderLoaded = order;
+                loader.setToBeLoaded(orderLoaded);
+              }
+            }
+            System.out.println("Loader " + parts[1] + " is ready");
+
+          } else if (parts[2].equals("loads")) {
+            System.out.println("System: Loader " + loader.getName() + ", load the picking request with id " + loader.getToBeLoaded().getRequestId() + ".");
+            loader.load();
+          } else if (parts[2].equals("scans")) {
+            loader.rescan(parts[3], fascias);
           } else if (parts[2].equals("rescans")) {
             loader.rescan(parts[3], fascias);
-          }
-
-          for (FasciaGroup group : pickedFascias) {
-            if (group.isSequenced() && (!group.isLoaded())) {
-              loader.load(group);
-            }
           }
         }
       }

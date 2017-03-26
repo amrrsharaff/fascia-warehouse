@@ -5,10 +5,22 @@ import java.util.ArrayList;
  */
 public class Loader {
 
+  String name;
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  /** The fascias to be sequenced. */
+  private Order toBeLoaded;
     /**
      * Initializes a loader.
      */
-    public Loader() {
+    public Loader(String name) {
+      this.name = name;
     }
     
     /**
@@ -16,15 +28,9 @@ public class Loader {
      * 
      * @param group a group of 8 fascias.
      */
-    public void load(FasciaGroup group) {
-        // Since we don't deal with truck, we just assign loaded to be true.
-        group.setLoaded(true);
-        for (int i = 0; i < 8; i += 2) {
-            String order = group.getOrder(i);
-            System.out.println("Order " + order + " loaded");
-
-        }
-        System.out.println("Loader: Picking request number " + group.getRequestId() + " was loaded");
+    public void load() {
+        // Loader replies saying the picking request is laoded.
+        System.out.println("Loader " + this.name + ": Picking request with id " + this.getToBeLoaded().getRequestId() + " is loaded.");
     }
     
     /**
@@ -46,5 +52,13 @@ public class Loader {
   		  }
   	  }  
   	  return correctFascia;
+    }
+
+    public Order getToBeLoaded() {
+      return toBeLoaded;
+    }
+
+    public void setToBeLoaded(Order toBeLoaded) {
+      this.toBeLoaded = toBeLoaded;
     }
 }
