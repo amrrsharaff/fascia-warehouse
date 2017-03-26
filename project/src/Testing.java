@@ -11,6 +11,7 @@ public class Testing {
   public void testSequencerAndReplenisher(){
     String name = "Ashley";
     Sequencer sequencer = new Sequencer("Ashley");
+    Picker picker = new Picker("Lindsey", 0);
     assertEquals(sequencer.getName(), name);
     Fascia fascia1 = new Fascia("black", "SES", "123", true);
     Fascia fascia2 = new Fascia("black", "SES", "124", false);
@@ -38,6 +39,12 @@ public class Testing {
     invertedFascias.add(fascia7);
     invertedFascias.add(fascia8);
     assertEquals(sequencer.compare(fascias, invertedFascias), false);
+    assertEquals(sequencer.compare(fascia1, fascia2), false);
+    assertEquals(sequencer.isCorrect(), true);
+    sequencer.rescan("123", fascias, );
+    
+    
+    
     fascia1.setLocation("A000");
     for(int i = 0; i < invertedFascias.size(); i++){
       invertedFascias.get(i).fasciaCount = 5;
@@ -46,6 +53,7 @@ public class Testing {
     replenisher.replenish("A000", invertedFascias);
     assertEquals(30, fascia1.fasciaCount);
   }
+    
   @Test
   public void testFascia(){
     Fascia fascia = new Fascia("black", "SES", "123", true);
@@ -88,6 +96,7 @@ public class Testing {
     loader.load(fasciaGroup);
     assertTrue(fasciaGroup.isLoaded());
   }
+  
   @Test
   public void testOrderAndPicker(){
     ArrayList<String> order1 = new ArrayList<>();

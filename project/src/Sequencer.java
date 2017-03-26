@@ -24,7 +24,7 @@ public class Sequencer {
    */
   public Sequencer(String name) {
     this.name = name;
-    this.correct = true;
+    setCorrect(true);
   }
 
   public void setToBeSequenced(Order toBeSequenced) {
