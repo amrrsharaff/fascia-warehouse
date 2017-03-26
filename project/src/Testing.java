@@ -41,7 +41,8 @@ public class Testing {
     assertEquals(sequencer.compare(fascias, invertedFascias), false);
     assertEquals(sequencer.compare(fascia1, fascia2), false);
     assertEquals(sequencer.isCorrect(), true);
-    sequencer.rescan("123", fascias, );
+    sequencer.rescan(fascia1.getSku(), fascias, picker);
+    assertEquals(sequencer.getRescannedSKUs().size(), 0);
     
     
     

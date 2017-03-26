@@ -99,6 +99,10 @@ public class Sequencer {
     }
   }
 
+  public ArrayList<String> getRescannedSKUs(){
+    return this.rescannedSKUs;
+  }
+  
   public String getName() {
     return name;
   }
