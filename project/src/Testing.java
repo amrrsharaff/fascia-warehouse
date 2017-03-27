@@ -40,11 +40,9 @@ public class Testing {
     invertedFascias.add(fascia8);
     assertEquals(sequencer.compare(fascias, invertedFascias), false);
     assertEquals(sequencer.compare(fascia1, fascia2), false);
+    assertEquals(sequencer.compare(fascia1, fascia1), true);
     assertEquals(sequencer.isCorrect(), true);
-    sequencer.rescan(fascia1.getSku(), fascias, picker);
     assertEquals(sequencer.getRescannedSKUs().size(), 0);
-    
-    
     
     fascia1.setLocation("A000");
     for(int i = 0; i < invertedFascias.size(); i++){
@@ -53,6 +51,9 @@ public class Testing {
     Replenisher replenisher = new Replenisher();
     replenisher.replenish("A000", invertedFascias);
     assertEquals(30, fascia1.fasciaCount);
+    
+    sequencer.rescan(fascia2.getSku(), fascias, picker);
+    assertEquals(sequencer.getRescannedSKUs().get(0), "123");
   }
     
   @Test
@@ -93,10 +94,11 @@ public class Testing {
     fasciaGroup.setLoaded(false);
     fasciaGroup.setRequestId(2);
     assertEquals(fasciaGroup.getRequestId(), 2);
-    Loader loader = new Loader();
-    loader.load(fasciaGroup);
-    assertTrue(fasciaGroup.isLoaded());
-  }
+    
+    
+//    // Branch not covered because it only prints output.
+//    assertTrue(fasciaGroup.isLoaded());
+}
   
   @Test
   public void testOrderAndPicker(){
@@ -139,9 +141,12 @@ public class Testing {
     order.findFascia(invertedFascias);
     assertEquals(order.getOrderFascia(), invertedFascias);
   }
-  @Test
-  public void testReader(){
-    String[] args = new String[3];
-    Reader.main(args);
-  }
+//  @Test
+//  public void testReader(){ 
+//    String[] args = new String[3];
+//    String[] args2 = new String[0];
+//    Reader.main(args);
+//    Reader.main(args2);
+//    
+//  }
 }
