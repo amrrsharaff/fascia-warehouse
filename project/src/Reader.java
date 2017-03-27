@@ -334,9 +334,9 @@ public class Reader {
                     repickedGroup.setSequenced(true);
                     pickedFascias.add(index, repickedGroup);
                     sequencer.setSequencedFascias(sequencer.getToBeSequenced().getOrderFascia());
-                    //System.out.println("System: Picker " + pickers.get(0).getName()
-                    //    + " repick Orders with request ID "
-                    //    + sequencer.getToBeSequenced().getRequestId());
+                    System.out.println("System: Picker " + pickers.get(0).getName()
+                        + " repick Orders with request ID "
+                        + sequencer.getToBeSequenced().getRequestId());
                     System.out.println("Picker " + pickers.get(0).getName()
                         + ": Orders with request ID " + sequencer.getToBeSequenced().getRequestId()
                         + " is now repicked correctly.");
