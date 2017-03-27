@@ -51,6 +51,14 @@ Sequencer Sue rescans 43
 Sequencer Sue rescans 44
 Picker Alice pick 44
 Loader Bill ready
+Loader Bill scans 38
+Loader Bill scans 38
+Loader Bill scans 21
+Loader Bill scans 22
+Loader Bill scans 43
+Loader Bill scans 44
+Loader Bill scans 43
+Loader Bill scans 44
 Loader Bill loads
 Order S Black
 Picker Bob pick 44
@@ -65,7 +73,7 @@ Picker Bob pick 35
 Sequencer Heather ready
 Sequencer Heather sequences 9
 Sequencer Heather sequences 10
-Sequencer Heather sequences 29
+Sequencer Heather sequences 30
 Sequencer Heather sequences 30
 Sequencer Heather sequences 3
 Sequencer Heather sequences 4
@@ -82,6 +90,14 @@ Sequencer Heather rescans 44
 Picker Bob pick 36
 Picker Alice pick 1
 Loader Bill ready
+Loader Bill scans 9
+Loader Bill scans 10
+Loader Bill scans 29
+Loader Bill scans 30
+Loader Bill scans 3
+Loader Bill scans 4
+Loader Bill scans 43
+Loader Bill scans 44
 Loader Bill loads
 Picker Alice pick 2
 Picker Bob pick 41
@@ -107,6 +123,14 @@ Picker Bob pick 41
 Replenisher Ruby replenish A 1 1 2
 Picker Bob pick 42
 Loader Bill ready
+Loader Bill scans 43
+Loader Bill scans 44
+Loader Bill scans 41
+Loader Bill scans 42
+Loader Bill scans 45
+Loader Bill scans 46
+Loader Bill scans 1
+Loader Bill scans 2
 Loader Bill loads
 Sequencer Heather ready
 Sequencer Heather sequences 45
@@ -126,4 +150,12 @@ Sequencer Heather rescans 42
 Sequencer Heather rescans 41
 Sequencer Heather rescans 42
 Loader Bill ready
+Loader Bill scans 45
+Loader Bill scans 46
+Loader Bill scans 35
+Loader Bill scans 36
+Loader Bill scans 42
+Loader Bill scans 42
+Loader Bill scans 41
+Loader Bill scans 42
 Loader Bill loads

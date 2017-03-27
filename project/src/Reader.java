@@ -240,10 +240,14 @@ public class Reader {
             }
             if (!found) {
               Picker newPicker = new Picker(parts[1], nextGroup);
+<<<<<<< HEAD
               logger.info("Picker " + parts[1] + " is ready.");
+=======
+>>>>>>> b46535436ff4f7da6773d8541c69837e2c67e690
               nextGroup++;
               pickers.add(newPicker);
             }
+            System.out.println("Picker " + parts[1] + " is ready.");
           } else if (parts[2].equals("pick")) { // an order to pick
             // look for picker
             Fascia toBePickedFascia = fascias.get(0);
@@ -352,6 +356,7 @@ public class Reader {
             } else {
               sequencer.getFascias().add(fasciaSeq);
               sequencer.setCorrect(false);
+              System.out.println("Sequencer " + sequencer.getName() + " sequenced fascia with sku " + fasciaSeq.getSku());
             }
             if (sequencer.getFascias().size() == 8) {
               if (!sequencer.isCorrect()) {
@@ -367,11 +372,12 @@ public class Reader {
                     FasciaGroup repickedGroup =
                         new FasciaGroup(sequencer.getToBeSequenced().getOrderFascia(),
                             sequencer.getToBeSequenced().getRequestId());
+                    repickedGroup.setSequenced(true);
                     pickedFascias.add(index, repickedGroup);
                     sequencer.setSequencedFascias(sequencer.getToBeSequenced().getOrderFascia());
-                    System.out.println("System: Picker " + pickers.get(0).getName()
-                        + " repick Orders with request ID "
-                        + sequencer.getToBeSequenced().getRequestId());
+                    //System.out.println("System: Picker " + pickers.get(0).getName()
+                    //    + " repick Orders with request ID "
+                    //    + sequencer.getToBeSequenced().getRequestId());
                     System.out.println("Picker " + pickers.get(0).getName()
                         + ": Orders with request ID " + sequencer.getToBeSequenced().getRequestId()
                         + " is now repicked correctly.");
@@ -436,10 +442,20 @@ public class Reader {
                     + loader.getToBeLoaded().getRequestId() + ".");
             loader.load();
           } else if (parts[2].equals("scans")) {
+            for (Loader oldLoader : loaders) {
+              if (oldLoader.getName().equals(parts[1])) {
+                loader = oldLoader;
+              }
+            }
             System.out.println("System: Loader " + loader.getName() + ", scan the fascia with SKU "
                 + parts[3] + ".");
             loader.rescan(parts[3], fascias, pickers.get(0));
           } else if (parts[2].equals("rescans")) {
+            for (Loader oldLoader : loaders) {
+              if (oldLoader.getName().equals(parts[1])) {
+                loader = oldLoader;
+              }
+            }
             System.out.println("System: Loader " + loader.getName()
                 + ", rescan the fascia with SKU " + parts[3] + ".");
             loader.rescan(parts[3], fascias, pickers.get(0));
