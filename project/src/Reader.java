@@ -295,6 +295,7 @@ public class Reader {
               }
             }
             sequencer.setSequencedFascias(new ArrayList<Fascia>());
+            sequencer.setRescannedSKUs(new ArrayList<String>());
             sequencer.setCorrect(true);
             System.out.println("The group number assigned is "+ sequencer.getToBeSequenced().getRequestId());
             System.out.println("Sequencer " + parts[1] + " is ready");
@@ -384,6 +385,7 @@ public class Reader {
                 loader.setToBeLoaded(orderLoaded);
               }
             }
+            loader.setRescannedSKUs(new ArrayList<String>());
             System.out.println("Loader " + parts[1] + " is ready");
 
           } else if (parts[2].equals("loads")) {

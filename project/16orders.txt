@@ -41,6 +41,14 @@ Sequencer Sue sequences 43
 Sequencer Sue sequences 44
 Sequencer Sue sequences 43
 Sequencer Sue sequences 44
+Sequencer Sue rescans 37
+Sequencer Sue rescans 38
+Sequencer Sue rescans 21
+Sequencer Sue rescans 22
+Sequencer Sue rescans 43
+Sequencer Sue rescans 44
+Sequencer Sue rescans 43
+Sequencer Sue rescans 44
 Picker Alice pick 44
 Loader Bill ready
 Loader Bill loads
@@ -63,6 +71,14 @@ Sequencer Heather sequences 3
 Sequencer Heather sequences 4
 Sequencer Heather sequences 43
 Sequencer Heather sequences 44
+Sequencer Heather rescans 9
+Sequencer Heather rescans 10
+Sequencer Heather rescans 29
+Sequencer Heather rescans 30
+Sequencer Heather rescans 3
+Sequencer Heather rescans 4
+Sequencer Heather rescans 43
+Sequencer Heather rescans 44
 Picker Bob pick 36
 Picker Alice pick 1
 Loader Bill ready
@@ -79,6 +95,14 @@ Sequencer Sue sequences 45
 Sequencer Sue sequences 46
 Sequencer Sue sequences 1
 Sequencer Sue sequences 2
+Sequencer Sue rescans 43
+Sequencer Sue rescans 44
+Sequencer Sue rescans 41
+Sequencer Sue rescans 42
+Sequencer Sue rescans 45
+Sequencer Sue rescans 46
+Sequencer Sue rescans 1
+Sequencer Sue rescans 2
 Picker Bob pick 41
 Replenisher Ruby replenish A 1 1 2
 Picker Bob pick 42
@@ -93,5 +117,13 @@ Sequencer Heather sequences 41
 Sequencer Heather sequences 42
 Sequencer Heather sequences 41
 Sequencer Heather sequences 42
+Sequencer Heather rescans 45
+Sequencer Heather rescans 46
+Sequencer Heather rescans 35
+Sequencer Heather rescans 36
+Sequencer Heather rescans 41
+Sequencer Heather rescans 42
+Sequencer Heather rescans 41
+Sequencer Heather rescans 42
 Loader Bill ready
 Loader Bill loads

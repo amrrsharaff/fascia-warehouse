@@ -19,6 +19,14 @@ public class Sequencer {
 
   private boolean correct;
 
+  public ArrayList<String> getRescannedSKUs() {
+    return rescannedSKUs;
+  }
+
+  public void setRescannedSKUs(ArrayList<String> rescannedSKUs) {
+    this.rescannedSKUs = rescannedSKUs;
+  }
+
   public ArrayList<Fascia> getSequencedFascias() {
     return sequencedFascias;
   }
