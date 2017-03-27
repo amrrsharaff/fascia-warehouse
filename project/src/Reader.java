@@ -1,9 +1,41 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 public class Reader {
+
+  private static final Logger logger = Logger.getLogger(Reader.class.getName());
+
+  /**
+   * Sets up the logger to log events and messages in the system.
+   * 
+   * @throws IOException
+   */
+  private static void setupLogger() throws IOException {
+    // gets rid of any handling that the root Logger has in order to avoid duplicate console
+    // printing
+    LogManager.getLogManager().reset();
+    logger.setLevel(Level.ALL);
+
+    // creates a ConsoleHandler for the logger to use
+    ConsoleHandler consoleHandler = new ConsoleHandler();
+    consoleHandler.setLevel(Level.ALL);
+    logger.addHandler(consoleHandler);
+
+    // creates a FileHandler for the logger to use
+    FileHandler fileHandler = new FileHandler("log.txt");
+    fileHandler.setLevel(Level.ALL);
+    fileHandler.setFormatter(new SimpleFormatter());
+    logger.addHandler(fileHandler);
+  }
 
   /**
    * Transfer all the fascias from the file onto the system.
@@ -25,7 +57,7 @@ public class Reader {
         fascias.add(backFascia);
       }
       scanner.close();
-      System.out.println("All fascias available are recorded");
+      logger.info("All fascias available are recorded");
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
@@ -53,7 +85,7 @@ public class Reader {
 
       }
       scanner.close();
-      System.out.println("All fascias' locations are now recorded");
+      logger.info("All fascias' locations are now recorded");
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
@@ -83,7 +115,7 @@ public class Reader {
 
       }
       scanner.close();
-      System.out.println("The number of each type of fascia is now recorded");
+      logger.info("The number of each type of fascia is now recorded");
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
@@ -110,7 +142,7 @@ public class Reader {
             // the fascia picked by the picker
             boolean correct = sequencer.compare(order.getOrderFascia(), group.getFascias());
             if (!correct) {
-              System.out.println("The order with ID " + order.getRequestId()
+              logger.warning("The order with ID " + order.getRequestId()
                   + " was not picked correctly. It will be picked again.");
               // remove the incorrect order
               int incorrectIndex = pickedFascias.indexOf(group);
@@ -120,10 +152,9 @@ public class Reader {
                   new FasciaGroup(order.getOrderFascia(), order.getRequestId());
               correctFascia.setSequenced(true);
               pickedFascias.add(incorrectIndex, correctFascia);
-              System.out.println("Picker " + picker.getName() + " re-picked the correct fascias.");
+              logger.info("Picker " + picker.getName() + " re-picked the correct fascias.");
             } else {
-              System.out
-                  .println("The order with ID " + order.getRequestId() + " was picked correctly.");
+              logger.info("The order with ID " + order.getRequestId() + " was picked correctly.");
             }
             // break;
           }
@@ -141,6 +172,11 @@ public class Reader {
       path = args[0];
     } else { // follow the standard event file
       path = "../16orders.txt";
+    }
+    try { // set up the logger
+      Reader.setupLogger();
+    } catch (IOException e1) {
+      logger.log(Level.SEVERE, "File Logger not working.", e1);
     }
     Reader reader = new Reader();
     int nextGroup = 0;
@@ -163,7 +199,7 @@ public class Reader {
     // Sets location for all fascias
     reader.setLocations(file2, fascias);
 
-    // sets amount of all Fascias
+    // sets amount of all fascias
     reader.setCount(file3, fascias);
 
     try {
@@ -183,7 +219,7 @@ public class Reader {
             patch.findFascia(fascias);
             groups.add(patch);
             orders = new ArrayList<ArrayList<String>>();
-            System.out.println("We received a set of 4 orders");
+            logger.info("We received a set of 4 orders");
           }
           // if that's a pick
         } else if (parts[0].equals("Picker")) {
@@ -204,7 +240,7 @@ public class Reader {
             }
             if (!found) {
               Picker newPicker = new Picker(parts[1], nextGroup);
-              System.out.println("Picker " + parts[1] + " is ready.");
+              logger.info("Picker " + parts[1] + " is ready.");
               nextGroup++;
               pickers.add(newPicker);
             }
@@ -217,7 +253,7 @@ public class Reader {
                 Order toBePicked = groups.get(oldPicker.groupIndex);
                 toBePicked.findFascia(fascias);
                 // pick fascia statement, actual picking happens after system confirmation.
-                System.out.println("Fascia with SKU number " + parts[3] + " was picked by picker "
+                logger.info("Fascia with SKU number " + parts[3] + " was picked by picker "
                     + oldPicker.getName());
                 for (Fascia fascia : fascias) {
                   if (fascia.getSku().equals(parts[3])) {
@@ -229,14 +265,14 @@ public class Reader {
                     .equals(toBePickedFascia.getSku())) {
                   // picking happens here or else statement
                   oldPicker.pickFascia(parts[3], fascias);
-                  System.out.println("System: Picked the correct fascia");
+                  logger.info("System: Picked the correct fascia");
                 } else { // The system says that the picker picked the wrong fascias
-                  System.out.println("System: Picker " + parts[1] + " picked the wrong fascia.");
-                  System.out.println("System: The correct fascia to pick has SKU: "
+                  logger.warning("System: Picker " + parts[1] + " picked the wrong fascia.");
+                  logger.warning("System: The correct fascia to pick has SKU: "
                       + toBePicked.getOrderFascia().get(indexOfFascia).getSku());
                   oldPicker.pickFascia(toBePicked.getOrderFascia().get(indexOfFascia).getSku(),
                       fascias);
-                  System.out.println("System: Mistake has been fixed, Picker " + parts[1]
+                  logger.info("System: Mistake has been fixed, Picker " + parts[1]
                       + " has picked the correct fascia.");
 
                 }
@@ -245,9 +281,8 @@ public class Reader {
                   FasciaGroup pickedGroup =
                       new FasciaGroup(oldPicker.getFascias(), toBePicked.getRequestId());
                   pickedFascias.add(pickedGroup);
-                  System.out
-                      .println("All fascias in picking request number " + toBePicked.getRequestId()
-                          + " were picked by picker " + oldPicker.getName());
+                  logger.info("All fascias in picking request number " + toBePicked.getRequestId()
+                      + " were picked by picker " + oldPicker.getName());
                 }
               }
             }
@@ -255,13 +290,13 @@ public class Reader {
         } else if (parts[0].equals("Replenisher")) { // if it's a
                                                      // Replenisher
           if (parts[2].equals("ready")) {
-            System.out.println("Replenisher " + parts[1] + " is ready.");
+            logger.info("Replenisher " + parts[1] + " is ready.");
           } else {
             // Replenish at the given location
             String location = parts[3] + parts[4] + parts[5] + parts[6];
             Replenisher replenisher = new Replenisher();
             replenisher.replenish(location, fascias);
-            System.out.println(parts[1] + " replenished fascia at " + location);
+            logger.info(parts[1] + " replenished fascia at " + location);
           }
         } else if (parts[0].equals("Sequencer")) { // if it's a
                                                    // Sequencer
@@ -297,8 +332,9 @@ public class Reader {
             sequencer.setSequencedFascias(new ArrayList<Fascia>());
             sequencer.setRescannedSKUs(new ArrayList<String>());
             sequencer.setCorrect(true);
-            System.out.println("The group number assigned is "+ sequencer.getToBeSequenced().getRequestId());
-            System.out.println("Sequencer " + parts[1] + " is ready");
+            logger.info(
+                "The group number assigned is " + sequencer.getToBeSequenced().getRequestId());
+            logger.info("Sequencer " + parts[1] + " is ready");
 
           } else if (parts[2].equals("sequences")) {
             int index = 0;
@@ -311,7 +347,8 @@ public class Reader {
                 sequencer.getToBeSequenced().getOrderFascia().get(sequencer.getFascias().size());
             if (parts[3].equals(fasciaSeq.getSku())) {
               sequencer.getFascias().add(fasciaSeq);
-              System.out.println("Sequencer " + sequencer.getName() + " sequenced fascia with sku " + fasciaSeq.getSku());
+              System.out.println("Sequencer " + sequencer.getName() + " sequenced fascia with sku "
+                  + fasciaSeq.getSku());
             } else {
               sequencer.getFascias().add(fasciaSeq);
               sequencer.setCorrect(false);
