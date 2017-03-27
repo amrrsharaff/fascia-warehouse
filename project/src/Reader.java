@@ -240,10 +240,7 @@ public class Reader {
             }
             if (!found) {
               Picker newPicker = new Picker(parts[1], nextGroup);
-<<<<<<< HEAD
               logger.info("Picker " + parts[1] + " is ready.");
-=======
->>>>>>> b46535436ff4f7da6773d8541c69837e2c67e690
               nextGroup++;
               pickers.add(newPicker);
             }
