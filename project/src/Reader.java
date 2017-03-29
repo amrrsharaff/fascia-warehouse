@@ -171,7 +171,7 @@ public class Reader {
     if (args.length != 0) { // use the first argument from the command line.
       path = args[0];
     } else { // follow the standard event file
-      path = "../16orders.txt";
+      path = "/Users/Omar/CSC207/group_0423/project/16orders.txt";
     }
     try { // set up the logger
       Reader.setupLogger();
@@ -188,9 +188,9 @@ public class Reader {
     ArrayList<Sequencer> sequencers = new ArrayList<>();
     ArrayList<Loader> loaders = new ArrayList<>();
 
-    File file1 = new File("../translation.csv");
-    File file2 = new File("../traversal_table.csv");
-    File file3 = new File("../initial.csv");
+    File file1 = new File("/Users/Omar/CSC207/group_0423/project/translation.csv");
+    File file2 = new File("/Users/Omar/CSC207/group_0423/project/traversal_table.csv");
+    File file3 = new File("/Users/Omar/CSC207/group_0423/project/initial.csv");
     File file4 = new File(path);
 
     // Makes all possible fascias in warehouse
@@ -244,7 +244,7 @@ public class Reader {
               nextGroup++;
               pickers.add(newPicker);
             }
-            System.out.println("Picker " + parts[1] + " is ready.");
+            logger.info("Picker " + parts[1] + " is ready.");
           } else if (parts[2].equals("pick")) { // an order to pick
             // look for picker
             Fascia toBePickedFascia = fascias.get(0);
@@ -438,7 +438,7 @@ public class Reader {
             logger.info(
                 "System: Loader " + loader.getName() + ", load the picking request with id "
                     + loader.getToBeLoaded().getRequestId() + ".");
-            System.out.println("Loader " + loader.getName() + ": Picking request with id "
+            logger.info("Loader " + loader.getName() + ": Picking request with id "
                     + loader.getToBeLoaded().getRequestId() + " is loaded.");
           } else if (parts[2].equals("scans")) {
             for (Loader oldLoader : loaders) {
