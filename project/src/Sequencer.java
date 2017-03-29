@@ -14,9 +14,9 @@ public class Sequencer {
   /** The fascias to be rescanned. */
   private ArrayList<String> rescannedSKUs = new ArrayList<String>();
   
-//  public void setSequencedFascias(ArrayList<Fascia> sequencedFascias) {
-//    this.sequencedFascias = sequencedFascias;
-//  }
+  public void setSequencedFascias(ArrayList<Fascia> sequencedFascias) {
+    this.sequencedFascias = sequencedFascias;
+  }
 
   private boolean correct;
 
@@ -24,13 +24,13 @@ public class Sequencer {
     return rescannedSKUs;
   }
 
-//  public void setRescannedSKUs(ArrayList<String> rescannedSKUs) {
-//    this.rescannedSKUs = rescannedSKUs;
-//  }
-//
-//  public ArrayList<Fascia> getSequencedFascias() {
-//    return sequencedFascias;
-//  }
+  public void setRescannedSKUs(ArrayList<String> rescannedSKUs) {
+    this.rescannedSKUs = rescannedSKUs;
+  }
+
+  public ArrayList<Fascia> getSequencedFascias() {
+    return sequencedFascias;
+  }
 
   /**
    * Constructs a new Sequencer.
@@ -40,17 +40,17 @@ public class Sequencer {
     setCorrect(true);
   }
 
-//  public void setToBeSequenced(Order toBeSequenced) {
-//    this.toBeSequenced = toBeSequenced;
-//  }
-//
-//  public ArrayList<Fascia> getFascias() {
-//    return sequencedFascias;
-//  }
-//
-//  public Order getToBeSequenced() {
-//    return toBeSequenced;
-//  }
+  public void setToBeSequenced(Order toBeSequenced) {
+    this.toBeSequenced = toBeSequenced;
+  }
+
+  public ArrayList<Fascia> getFascias() {
+    return sequencedFascias;
+  }
+
+  public Order getToBeSequenced() {
+    return toBeSequenced;
+  }
 
   /**
    * Compares the original order with the collected fascia to see if they match.

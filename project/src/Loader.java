@@ -25,15 +25,15 @@ public class Loader {
       this.name = name;
     }
     
-//    /**
-//     * Load the order onto the truck.
-//     * 
-//     * @param group a group of 8 fascias.
-//     */
-//    public void load() {
-//        // Loader replies saying the picking request is laoded.
-//        System.out.println("Loader " + this.name + ": Picking request with id " + this.getToBeLoaded().getRequestId() + " is loaded.");
-//    }
+    /**
+     * Load the order onto the truck.
+     * 
+     * @param group a group of 8 fascias.
+     */
+    public void load() {
+        // Loader replies saying the picking request is laoded.
+        System.out.println("Loader " + this.name + ": Picking request with id " + this.getToBeLoaded().getRequestId() + " is loaded.");
+    }
     
     /** 
      * @param picker

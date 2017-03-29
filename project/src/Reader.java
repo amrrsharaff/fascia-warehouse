@@ -188,9 +188,9 @@ public class Reader {
     ArrayList<Sequencer> sequencers = new ArrayList<>();
     ArrayList<Loader> loaders = new ArrayList<>();
 
-    File file1 = new File("../translation.csv");
-    File file2 = new File("../traversal_table.csv");
-    File file3 = new File("../initial.csv");
+    File file1 = new File("project/translation.csv");
+    File file2 = new File("project/traversal_table.csv");
+    File file3 = new File("project/initial.csv");
     File file4 = new File(path);
 
     // Makes all possible fascias in warehouse
@@ -348,20 +348,21 @@ public class Reader {
                 sequencer.getToBeSequenced().getOrderFascia().get(sequencer.getFascias().size());
             if (parts[3].equals(fasciaSeq.getSku())) {
               sequencer.getFascias().add(fasciaSeq);
-              System.out.println("Sequencer " + sequencer.getName() + " sequenced fascia with sku "
+              logger.info("Sequencer " + sequencer.getName() + " sequenced fascia with sku "
                   + fasciaSeq.getSku());
             } else {
               sequencer.getFascias().add(fasciaSeq);
               sequencer.setCorrect(false);
-              System.out.println("Sequencer " + sequencer.getName() + " sequenced fascia with sku " + fasciaSeq.getSku());
+              logger.info("Sequencer " + sequencer.getName() + " sequenced fascia with sku "
+                  + fasciaSeq.getSku());
             }
             if (sequencer.getFascias().size() == 8) {
               if (!sequencer.isCorrect()) {
-                System.out.println(
+                logger.warning(
                     "System: Orders with request ID " + sequencer.getToBeSequenced().getRequestId()
                         + " were found to have an incorrect fascia received by " + "sequencer "
                         + sequencer.getName() + ".");
-                System.out.println("System: This set of fascias are thrown away.");
+                logger.warning("System: This set of fascias are thrown away.");
                 for (FasciaGroup group : pickedFascias) {
                   if (group.getRequestId() == sequencer.getToBeSequenced().getRequestId()) {
                     index = pickedFascias.indexOf(group);
@@ -372,17 +373,17 @@ public class Reader {
                     repickedGroup.setSequenced(true);
                     pickedFascias.add(index, repickedGroup);
                     sequencer.setSequencedFascias(sequencer.getToBeSequenced().getOrderFascia());
-                    System.out.println("System: Picker " + pickers.get(0).getName()
+                    logger.warning("System: Picker " + pickers.get(0).getName()
                         + " repick Orders with request ID "
                         + sequencer.getToBeSequenced().getRequestId());
-                    System.out.println("Picker " + pickers.get(0).getName()
-                        + ": Orders with request ID " + sequencer.getToBeSequenced().getRequestId()
+                    logger.info("Picker " + pickers.get(0).getName() + ": Orders with request ID "
+                        + sequencer.getToBeSequenced().getRequestId()
                         + " is now repicked correctly.");
                     break;
                   }
                 }
               } else {
-                System.out.println("System: Orders with request ID "
+                logger.info("System: Orders with request ID "
                     + sequencer.getToBeSequenced().getRequestId() + " are sequenced.");
               }
             }
@@ -426,7 +427,7 @@ public class Reader {
               }
             }
             loader.setRescannedSKUs(new ArrayList<String>());
-            System.out.println("Loader " + parts[1] + " is ready");
+            logger.info("Loader " + parts[1] + " is ready");
 
           } else if (parts[2].equals("loads")) {
             for (Loader oldLoader : loaders) {
