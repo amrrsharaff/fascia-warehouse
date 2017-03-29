@@ -7,6 +7,7 @@ import java.util.logging.Logger;
  */
 public class Replenisher {
   
+  /** The logger used to log events. */
   private static final Logger logger = Logger.getLogger(Reader.class.getName());
 
     /**

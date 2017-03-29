@@ -6,8 +6,8 @@ import java.util.logging.Logger;
  */
 public class Sequencer {
   
+  /** The logger used to log events. */
   private static final Logger logger = Logger.getLogger(Reader.class.getName());
-
   /** The name of the Sequencer. */
   private String name;
   /** The inventory of the sequencer. */

@@ -12,6 +12,7 @@ import java.util.logging.SimpleFormatter;
 
 public class Reader {
 
+  /** The logger used to log events. */
   private static final Logger logger = Logger.getLogger(Reader.class.getName());
 
   /**
