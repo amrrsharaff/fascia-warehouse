@@ -171,7 +171,7 @@ public class Reader {
     if (args.length != 0) { // use the first argument from the command line.
       path = args[0];
     } else { // follow the standard event file
-      path = "/Users/Omar/CSC207/group_0423/project/16orders.txt";
+      path = "../16orders.txt";
     }
     try { // set up the logger
       Reader.setupLogger();
@@ -188,9 +188,9 @@ public class Reader {
     ArrayList<Sequencer> sequencers = new ArrayList<>();
     ArrayList<Loader> loaders = new ArrayList<>();
 
-    File file1 = new File("/Users/Omar/CSC207/group_0423/project/translation.csv");
-    File file2 = new File("/Users/Omar/CSC207/group_0423/project/traversal_table.csv");
-    File file3 = new File("/Users/Omar/CSC207/group_0423/project/initial.csv");
+    File file1 = new File("../translation.csv");
+    File file2 = new File("../traversal_table.csv");
+    File file3 = new File("../initial.csv");
     File file4 = new File(path);
 
     // Makes all possible fascias in warehouse
