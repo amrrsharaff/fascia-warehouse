@@ -188,9 +188,9 @@ public class Reader {
     ArrayList<Sequencer> sequencers = new ArrayList<>();
     ArrayList<Loader> loaders = new ArrayList<>();
 
-    File file1 = new File("project/translation.csv");
-    File file2 = new File("project/traversal_table.csv");
-    File file3 = new File("project/initial.csv");
+    File file1 = new File("../translation.csv");
+    File file2 = new File("../traversal_table.csv");
+    File file3 = new File("../initial.csv");
     File file4 = new File(path);
 
     // Makes all possible fascias in warehouse
@@ -435,7 +435,7 @@ public class Reader {
                 loader = oldLoader;
               }
             }
-            System.out.println(
+            logger.info(
                 "System: Loader " + loader.getName() + ", load the picking request with id "
                     + loader.getToBeLoaded().getRequestId() + ".");
             loader.load();
@@ -445,7 +445,7 @@ public class Reader {
                 loader = oldLoader;
               }
             }
-            System.out.println("System: Loader " + loader.getName() + ", scan the fascia with SKU "
+            logger.info("System: Loader " + loader.getName() + ", scan the fascia with SKU "
                 + parts[3] + ".");
             loader.rescan(parts[3], fascias, pickers.get(0));
           } else if (parts[2].equals("rescans")) {
@@ -454,14 +454,14 @@ public class Reader {
                 loader = oldLoader;
               }
             }
-            System.out.println("System: Loader " + loader.getName()
+            logger.warning("System: Loader " + loader.getName()
                 + ", rescan the fascia with SKU " + parts[3] + ".");
             loader.rescan(parts[3], fascias, pickers.get(0));
           }
         }
       }
       scanner.close();
-      System.out.println("All events are done.");
+      logger.info("All events are done.");
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
