@@ -8,8 +8,12 @@ public class Loader {
   
   /** The logger used to log events. */
   private static final Logger logger = Logger.getLogger(Reader.class.getName());
-
+  /** The name of the Loader. */
   private String name;
+  /** The order to be loaded */
+  private Order toBeLoaded;
+  /** The skus to be scanned/rescanned */
+  private ArrayList<String> rescannedSKUs;
   
   public String getName() {
     return name;
@@ -19,10 +23,7 @@ public class Loader {
 //    this.name = name;
 //  }
 
-  /** The order to be loaded */
-  private Order toBeLoaded;
-  /** The skus to be scanned/rescanned */
-  private ArrayList<String> rescannedSKUs;
+
     /**
      * Initializes a loader.
      */
