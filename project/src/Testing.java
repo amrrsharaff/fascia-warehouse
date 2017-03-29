@@ -52,8 +52,7 @@ public class Testing {
     replenisher.replenish("A000", invertedFascias);
     assertEquals(30, fascia1.fasciaCount);
     
-    sequencer.rescan(fascia2.getSku(), fascias, picker);
-    assertEquals(sequencer.getRescannedSKUs().get(0), "123");
+    
   }
     
   @Test
@@ -95,13 +94,13 @@ public class Testing {
     fasciaGroup.setRequestId(2);
     assertEquals(fasciaGroup.getRequestId(), 2);
     
-    
-//    // Branch not covered because it only prints output.
-//    assertTrue(fasciaGroup.isLoaded());
+    // TODO is setloaded, isloaded usefull?
+    fasciaGroup.setLoaded(true);
+    assertEquals(fasciaGroup.isLoaded(), true);
 }
   
   @Test
-  public void testOrderAndPicker(){
+  public void testOrder(){
     ArrayList<String> order1 = new ArrayList<>();
     ArrayList<String> order2 = new ArrayList<>();
     ArrayList<String> order3 = new ArrayList<>();
@@ -141,6 +140,74 @@ public class Testing {
     order.findFascia(invertedFascias);
     assertEquals(order.getOrderFascia(), invertedFascias);
   }
+  
+  @Test
+  public void testPicker() {
+    Picker picker = new Picker("Peter", 1);
+    Fascia fascia1 = new Fascia("Black", "SES", "123", true);
+    Fascia fascia2 = new Fascia("Black", "SES", "124", false);
+    Fascia fascia3 = new Fascia("Black", "SES", "125", true);
+    Fascia fascia4 = new Fascia("Black", "SES", "126", false);
+    Fascia fascia5 = new Fascia("Black", "SES", "127", true);
+    Fascia fascia6 = new Fascia("Black", "SES", "128", false);
+    Fascia fascia7 = new Fascia("Black", "SES", "129", true);
+    Fascia fascia8 = new Fascia("Black", "SES", "130", false);
+    fascias.add(fascia8);
+    fascias.add(fascia7);
+    fascias.add(fascia6);
+    fascias.add(fascia5);
+    fascias.add(fascia4);
+    fascias.add(fascia3);
+    fascias.add(fascia2);
+    fascias.add(fascia1);
+    assertEquals(picker.getName(), "Peter");
+    assertEquals(picker.isReady(), true);
+    assertEquals(picker.isDone(), false);
+    assertEquals(picker.getFascias(), new ArrayList<Fascia>());
+    picker.pickFascia("123", fascias);
+    picker.pickFascia("124", fascias);
+    picker.pickFascia("125", fascias);
+    picker.pickFascia("126", fascias);
+    picker.pickFascia("127", fascias);
+    picker.pickFascia("128", fascias);
+    picker.pickFascia("129", fascias);
+    picker.pickFascia("130", fascias);
+    assertEquals(picker.isDone(), true);   
+    picker.clearFascias();
+    for (int i = 0; i < 25; i++) {
+      picker.pickFascia(fascias.get(0).getSku(), fascias);
+      System.out.println(fascias.get(0).fasciaCount);
+      if (picker.isDone()){
+        picker.clearFascias();
+      }
+    }
+    picker.pickFascia("130", fascias);
+  }
+  
+  @Test
+  public void testLoader() {
+    Loader loader = new Loader("Larry");
+    assertEquals(loader.getName(), "Larry");
+    Picker picker = new Picker("Peter", 1);
+    Fascia fascia1 = new Fascia("Black", "SES", "123", true);
+    Fascia fascia2 = new Fascia("Black", "SES", "124", false);
+    Fascia fascia3 = new Fascia("Black", "SES", "125", true);
+    Fascia fascia4 = new Fascia("Black", "SES", "126", false);
+    Fascia fascia5 = new Fascia("Black", "SES", "127", true);
+    Fascia fascia6 = new Fascia("Black", "SES", "128", false);
+    Fascia fascia7 = new Fascia("Black", "SES", "129", true);
+    Fascia fascia8 = new Fascia("Black", "SES", "130", false);
+    fascias.add(fascia8);
+    fascias.add(fascia7);
+    fascias.add(fascia6);
+    fascias.add(fascia5);
+    fascias.add(fascia4);
+    fascias.add(fascia3);
+    fascias.add(fascia2);
+    fascias.add(fascia1);
+    // loader.rescan(fascias.get(0).getSku(), fascias, picker);
+  }
+  
 //  @Test
 //  public void testReader(){ 
 //    String[] args = new String[3];

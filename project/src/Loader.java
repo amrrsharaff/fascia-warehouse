@@ -5,14 +5,15 @@ import java.util.ArrayList;
  */
 public class Loader {
 
-  String name;
+  private String name;
+  
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+//  public void setName(String name) {
+//    this.name = name;
+//  }
 
   /** The order to be loaded */
   private Order toBeLoaded;
