@@ -1,11 +1,14 @@
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 /**
  * A replenisher in the system. The replenisher's job is to replenish any given fascia or those
  * that are less than or equal to 5 in quantity.
  */
 public class Replenisher {
-    
+  
+  private static final Logger logger = Logger.getLogger(Reader.class.getName());
+
     /**
      * Initializes a replenisher.
      */
@@ -22,7 +25,7 @@ public class Replenisher {
         for (Fascia fascia : allFascia) {
             if (location == fascia.getLocation()) {
                 fascia.fasciaCount = 30;
-                System.out.println("Fascia with location " + location + " was replenished");
+                logger.info("Fascia with location " + location + " was replenished");
             }
         }
     }
