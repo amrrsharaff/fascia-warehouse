@@ -213,7 +213,7 @@ public class Testing {
     fascias.add(fascia3);
     fascias.add(fascia2);
     fascias.add(fascia1);
-    
+
     ArrayList<String> order1 = new ArrayList<>();
     ArrayList<String> order2 = new ArrayList<>();
     ArrayList<String> order3 = new ArrayList<>();
