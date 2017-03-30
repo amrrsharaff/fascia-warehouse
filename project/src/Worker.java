@@ -30,7 +30,7 @@ public abstract class Worker {
    * Rescans a fascia and finds it in the database using the sku number.
    * 
    * @param sku The SKU number of the fascia that was rescanned.
-   * @param allFascia All the fascia in the warehouse.
+   * @param allFascia All of the fascia in the warehouse.
    * @param the picker who repicks the wrong fascia.
    */
   public void rescan(String sku, ArrayList<Fascia> allFascia, Picker picker) {

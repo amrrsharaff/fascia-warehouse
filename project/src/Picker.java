@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 
-/**
- * A picker in the system. The picker's job is to pick fascias after receiving the order.
- *
- */
+/** A picker in the system. The picker's job is to pick fascias after receiving the order. */
 public class Picker {
 
   /** The name of the Picker. */
@@ -20,6 +17,9 @@ public class Picker {
 
   /**
    * Initializes a new Picker.
+   * 
+   * @param name The name of the picker.
+   * @param groupIndex The index that helps that picker find the appropriate order to work with.
    */
   public Picker(String name, int groupIndex) {
     ready = true;
@@ -59,9 +59,9 @@ public class Picker {
   /**
    * Picks the fascia at the given index of the orders.
    * 
-   * @param orders the list of orders the Picker currently has to pick.
-   * @param index the index of orders at which the fascia needed to be picked is located.
-   * @param allFascias the list of all fascias currently in the system.
+   * @param orders The list of orders the Picker currently has to pick.
+   * @param index The index of orders at which the fascia needed to be picked is located.
+   * @param allFascias The list of all fascias currently in the system.
    */
   public void pickFascia(String sku, ArrayList<Fascia> allFascias) {
     ready = false;

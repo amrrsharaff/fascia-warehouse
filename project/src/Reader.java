@@ -17,6 +17,8 @@ public class Reader {
 
   /**
    * Sets up the logger to log events and messages in the system.
+   * 
+   * @throws IOException
    */
   private static void setupLogger() throws IOException {
     // gets rid of any handling that the root Logger has in order to avoid duplicate console
@@ -39,8 +41,8 @@ public class Reader {
   /**
    * Transfer all the fascias from the file onto the system.
    * 
-   * @param file the location of all the fascia.
-   * @param fascias the list which will contain all the fascias.
+   * @param file The location of all the fascia.
+   * @param fascias The list which will contain all the fascias.
    */
   public void readFascias(File file, ArrayList<Fascia> fascias) {
     try {
@@ -65,8 +67,8 @@ public class Reader {
   /**
    * Adds the location of each fascia into the system.
    * 
-   * @param file contains the location of each fascia.
-   * @param fascias all the fascias in the system.
+   * @param file The file containing the location of each fascia.
+   * @param fascias All of the fascias in the system.
    */
   public void setLocations(File file, ArrayList<Fascia> fascias) {
     try {
@@ -94,8 +96,8 @@ public class Reader {
   /**
    * Sets the count for those fascias that are less than 30 in stock.
    * 
-   * @param file contains the amount of those fascias that are less than 30 in stock.
-   * @param fascias all the fascias currently in the system.
+   * @param file The file containing the amount of the fascias that are less than 30 in stock.
+   * @param fascias All of the fascias currently in the system.
    */
   public void setCount(File file, ArrayList<Fascia> fascias) {
     try {
@@ -124,9 +126,9 @@ public class Reader {
   /**
    * Fixes any error in picking which showed up during sequencing.
    * 
-   * @param sequencer is the sequencer who detected the error
-   * @param fascias is an arrayList of class FasciaGroup which has all the picked picking requests
-   * @param picker is the picker who is going to fix the problem
+   * @param sequencer The sequencer who detected the error.
+   * @param fascias An arrayList of class FasciaGroup which has all the picked picking requests.
+   * @param picker The picker who is going to fix the problem.
    */
   public void fixError(Sequencer sequencer, ArrayList<FasciaGroup> fascias, Picker picker) {
     int index = 0;
@@ -156,7 +158,7 @@ public class Reader {
   /**
    * Runs the warehouse.
    * 
-   * @param args is an array of command line arguments
+   * @param args An array of command line arguments.
    */
   public static void main(String[] args) {
     String path;

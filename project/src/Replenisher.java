@@ -18,8 +18,8 @@ public class Replenisher {
   /**
    * Replenishes the number of a type of Fascia.
    * 
-   * @param location the location of the fascia.
-   * @param allFascia all the fascia in the system.
+   * @param location The location of the fascia.
+   * @param allFascia All of the fascia in the system.
    */
   public void replenish(String location, ArrayList<Fascia> allFascia) {
     for (Fascia fascia : allFascia) {

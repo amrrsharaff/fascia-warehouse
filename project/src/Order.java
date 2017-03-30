@@ -1,14 +1,12 @@
 import java.util.ArrayList;
 
-/**
- * An Order that contains 4 fascia request.
- */
+/** An Order that contains 4 fascia request. */
 public class Order {
 
   /** The request number of the Order before this one. */
   private static int requestNumb = 0;
 
-  /** The request number of this Order */
+  /** The request number of this Order. */
   private int requestId;
 
   /** The model number and colour of 4 orders. */
@@ -20,7 +18,7 @@ public class Order {
   /**
    * Initializes an order.
    * 
-   * @param fourOrders
+   * @param fourOrders The four fascia requests that constitue one order.
    */
   public Order(ArrayList<ArrayList<String>> fourOrders) {
     this.fourOrders = fourOrders;
@@ -35,7 +33,7 @@ public class Order {
   /**
    * Find all the fascia that are in the order.
    * 
-   * @param allFascia all the fascia in the system.
+   * @param allFascia All of the fascia in the system.
    */
   public void findFascia(ArrayList<Fascia> allFascia) {
     for (ArrayList<String> order : fourOrders) {

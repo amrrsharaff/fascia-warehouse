@@ -30,13 +30,9 @@ public class Sequencer extends Worker {
   // this.toBeSequenced = toBeSequenced;
   // }
 
-
-
   // public Order getToBeProcessed() {
   // return toBeSequenced;
   // }
-
-
 
   public boolean isCorrect() {
     return correct;
@@ -45,6 +41,4 @@ public class Sequencer extends Worker {
   public void setCorrect(boolean correct) {
     this.correct = correct;
   }
-
-
 }
