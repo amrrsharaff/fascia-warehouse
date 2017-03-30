@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 /**
  * A loader in the system. The loader's job is to load pallets onto the truck.
