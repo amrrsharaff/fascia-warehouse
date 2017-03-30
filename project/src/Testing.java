@@ -1,12 +1,6 @@
-
 import static org.junit.Assert.*;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.logging.Logger;
-
 import org.junit.Test;
 
 public class Testing {
@@ -55,15 +49,14 @@ public class Testing {
     Replenisher replenisher = new Replenisher();
     replenisher.replenish("A000", invertedFascias);
     assertEquals(30, fascia1.fasciaCount);
-     
+
     assertEquals(sequencer.getSequencedFascias().size(), 0);
     sequencer.setSequencedFascias(fascias);
     assertEquals(sequencer.getSequencedFascias(), fascias);
-    
   }
-    
+
   @Test
-  public void testFascia(){
+  public void testFascia() {
     Fascia fascia = new Fascia("black", "SES", "123", true);
     assertEquals("black", fascia.getColour());
     assertEquals("SES", fascia.getModelNumber());
@@ -103,8 +96,7 @@ public class Testing {
     assertEquals(fasciaGroup.getRequestId(), 2);
     fasciaGroup.setLoaded(true);
     assertEquals(fasciaGroup.isLoaded(), true);
-}
-  
+  }
 
   @Test
   public void testOrder() {
@@ -184,7 +176,7 @@ public class Testing {
     picker.clearFascias();
     for (int i = 0; i < 25; i++) {
       picker.pickFascia(fascias.get(0).getSku(), fascias);
-      if (picker.isDone()){
+      if (picker.isDone()) {
 
         picker.clearFascias();
       }
@@ -231,13 +223,14 @@ public class Testing {
     orders.add(order2);
     orders.add(order3);
     orders.add(order4);
-    
+
     Order loadOrder = new Order(orders);
     loader.setToBeProcessed(loadOrder);
     assertEquals(loader.getToBeProcessed(), loadOrder);
   }
+
   @Test
-  public void testWorker(){
+  public void testWorker() {
     ArrayList<String> skus = new ArrayList<>();
     skus.add("1");
     skus.add("2");
