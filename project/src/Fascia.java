@@ -1,6 +1,4 @@
-/*
- * A Fascia.
- */
+/* A Fascia. */
 public class Fascia {
 
   /** The model number of the Fascia. */
@@ -24,10 +22,10 @@ public class Fascia {
   /**
    * Initializes a Fascia.
    * 
-   * @param colour
-   * @param modelNumber
-   * @param sku
-   * @param front
+   * @param colour The colour of the fascia.
+   * @param modelNumber The model number of the fascia.
+   * @param sku The SKU number of the fascia.
+   * @param front True if it is a front fascia, false if it's a rear fascia.
    */
   public Fascia(String colour, String modelNumber, String sku, boolean front) {
     this.colour = colour;
@@ -57,6 +55,7 @@ public class Fascia {
     this.location = location;
   }
 
+  /** Return whether the fascia is a front fascia or not. */
   public boolean isFront() {
     return front;
   }
@@ -64,5 +63,4 @@ public class Fascia {
   public void setFront(boolean front) {
     this.front = front;
   }
-
 }
