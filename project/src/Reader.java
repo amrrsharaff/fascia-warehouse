@@ -17,8 +17,6 @@ public class Reader {
 
   /**
    * Sets up the logger to log events and messages in the system.
-   * 
-   * @throws IOException
    */
   private static void setupLogger() throws IOException {
     // gets rid of any handling that the root Logger has in order to avoid duplicate console
@@ -48,7 +46,7 @@ public class Reader {
     try {
       Scanner scanner = new Scanner(file);
       // colour, model, sku, true(if front), false(if back)
-      String firstLine = scanner.nextLine();
+      scanner.nextLine();
       while (scanner.hasNextLine()) {
         String newLine = scanner.nextLine();
         String[] parts = newLine.split(",");
@@ -58,9 +56,9 @@ public class Reader {
         fascias.add(backFascia);
       }
       scanner.close();
-      logger.info("All fascias available are recorded");
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
+      logger.info("System: All fascias available are recorded");
+    } catch (FileNotFoundException error) {
+      error.printStackTrace();
     }
   }
 
@@ -86,9 +84,9 @@ public class Reader {
 
       }
       scanner.close();
-      logger.info("All fascias' locations are now recorded");
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
+      logger.info("System: All fascias' locations are now recorded");
+    } catch (FileNotFoundException error) {
+      error.printStackTrace();
     }
   }
 
@@ -116,40 +114,52 @@ public class Reader {
 
       }
       scanner.close();
-      logger.info("The number of each type of fascia is now recorded");
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
+      logger.info("System: The number of each type of fascia is now recorded");
+    } catch (FileNotFoundException error) {
+      error.printStackTrace();
     }
   }
   
-  public void fixSequencingError(Sequencer sequencer, ArrayList<FasciaGroup> pickedFascias, Picker picker){
+  /**
+   * Fixes any error in picking which showed up during sequencing.
+   * 
+   * @param cquencer is the sequencer who detected the error
+   * @param fascias is an arrayList of class FasciaGroup which has all the picked picking requests
+   * @param picker is the picker who is going to fix the problem
+   */
+  public void fixError(Sequencer cquencer, ArrayList<FasciaGroup> fascias, Picker picker) {
     int index = 0;
     logger.warning(
-        "System: Orders with request ID " + sequencer.getToBeSequenced().getRequestId()
+        "System: Orders with request ID " + cquencer.getToBeSequenced().getRequestId()
             + " were found to have an incorrect fascia received by " + "sequencer "
-            + sequencer.getName() + ".");
+            + cquencer.getName() + ".");
     logger.warning("System: This set of fascias are thrown away.");
-    for (FasciaGroup group : pickedFascias) {
-      if (group.getRequestId() == sequencer.getToBeSequenced().getRequestId()) {
-        index = pickedFascias.indexOf(group);
-        pickedFascias.remove(group);
+    for (FasciaGroup group : fascias) {
+      if (group.getRequestId() == cquencer.getToBeSequenced().getRequestId()) {
+        index = fascias.indexOf(group);
+        fascias.remove(group);
         FasciaGroup repickedGroup =
-            new FasciaGroup(sequencer.getToBeSequenced().getOrderFascia(),
-                sequencer.getToBeSequenced().getRequestId());
+            new FasciaGroup(cquencer.getToBeSequenced().getOrderFascia(),
+                cquencer.getToBeSequenced().getRequestId());
         repickedGroup.setSequenced(true);
-        pickedFascias.add(index, repickedGroup);
-        sequencer.setSequencedFascias(sequencer.getToBeSequenced().getOrderFascia());
+        fascias.add(index, repickedGroup);
+        cquencer.setSequencedFascias(cquencer.getToBeSequenced().getOrderFascia());
         logger.warning("System: Picker " + picker.getName()
             + " repick Orders with request ID "
-            + sequencer.getToBeSequenced().getRequestId());
+            + cquencer.getToBeSequenced().getRequestId());
         logger.info("Picker " + picker.getName() + ": Orders with request ID "
-            + sequencer.getToBeSequenced().getRequestId()
+            + cquencer.getToBeSequenced().getRequestId()
             + " is now repicked correctly.");
         break;
       }
     }
   }
-
+  
+  /**
+   * Runs the warehouse.
+   * 
+   * @param args is an array of command line arguments
+   */
   public static void main(String[] args) {
     String path;
     if (args.length != 0) { // use the first argument from the command line.
@@ -207,9 +217,8 @@ public class Reader {
           }
           // if that's a pick
         } else if (parts[0].equals("Picker")) {
-          if (parts[2].equals("ready")) { // declaring a ready picker
-                                          // or setting an old picker
-                                          // ready
+          // declaring a ready picker
+          if (parts[2].equals("ready")) { 
             boolean found = false;
             // check to see if the picker already exists
             for (Picker oldPicker : pickers) {
@@ -224,11 +233,10 @@ public class Reader {
             }
             if (!found) {
               Picker newPicker = new Picker(parts[1], nextGroup);
-              logger.info("Picker " + parts[1] + " is ready.");
               nextGroup++;
               pickers.add(newPicker);
             }
-            logger.info("Picker " + parts[1] + " is ready.");
+            logger.info("System: Picker " + parts[1] + " is ready.");
           } else if (parts[2].equals("pick")) { // an order to pick
             // look for picker
             Fascia toBePickedFascia = fascias.get(0);
@@ -238,7 +246,7 @@ public class Reader {
                 Order toBePicked = groups.get(oldPicker.groupIndex);
                 toBePicked.findFascia(fascias);
                 // pick fascia statement, actual picking happens after system confirmation.
-                logger.info("Fascia with SKU number " + parts[3] + " was picked by picker "
+                logger.info("System: Fascia with SKU number " + parts[3] + " was picked by picker "
                     + oldPicker.getName());
                 for (Fascia fascia : fascias) {
                   if (fascia.getSku().equals(parts[3])) {
@@ -266,14 +274,13 @@ public class Reader {
                   FasciaGroup pickedGroup =
                       new FasciaGroup(oldPicker.getFascias(), toBePicked.getRequestId());
                   pickedFascias.add(pickedGroup);
-                  logger.info("All fascias in picking request number " + toBePicked.getRequestId()
+                  logger.info("System: All fascias in picking request number " + toBePicked.getRequestId()
                       + " were picked by picker " + oldPicker.getName());
                 }
               }
             }
           }
-        } else if (parts[0].equals("Replenisher")) { // if it's a
-                                                     // Replenisher
+        } else if (parts[0].equals("Replenisher")) { // if it's a Replenisher
           if (parts[2].equals("ready")) {
             logger.info("Replenisher " + parts[1] + " is ready.");
           } else {
@@ -281,10 +288,10 @@ public class Reader {
             String location = parts[3] + parts[4] + parts[5] + parts[6];
             Replenisher replenisher = new Replenisher();
             replenisher.replenish(location, fascias);
-            logger.info(parts[1] + " replenished fascia at " + location);
+            logger.info("System: Fascias at location " + location + " should be replenished.");
+            logger.info("Replenisher " + parts[1] + ": replenished fascia at " + location);
           }
-        } else if (parts[0].equals("Sequencer")) { // if it's a
-                                                   // Sequencer
+        } else if (parts[0].equals("Sequencer")) { // if it's a Sequencer
           Sequencer sequencer = new Sequencer("Default");
           if (parts[2].equals("ready")) {
             int groupNumber = 0;
@@ -317,9 +324,7 @@ public class Reader {
             sequencer.setSequencedFascias(new ArrayList<Fascia>());
             sequencer.setRescannedSKUs(new ArrayList<String>());
             sequencer.setCorrect(true);
-            logger.info(
-                "The group number assigned is " + sequencer.getToBeSequenced().getRequestId());
-            logger.info("Sequencer " + parts[1] + " is ready");
+            logger.info("System: Sequencer " + parts[1] + " is ready");
 
           } else if (parts[2].equals("sequences")) {
             for (Sequencer oldSequencer : sequencers) {
@@ -331,17 +336,17 @@ public class Reader {
                 sequencer.getToBeSequenced().getOrderFascia().get(sequencer.getFascias().size());
             if (parts[3].equals(fasciaSeq.getSku())) {
               sequencer.getFascias().add(fasciaSeq);
-              logger.info("Sequencer " + sequencer.getName() + " sequenced fascia with sku "
+              logger.info("System: Sequencer " + sequencer.getName() + " sequenced fascia with sku "
                   + fasciaSeq.getSku());
             } else {
               sequencer.getFascias().add(fasciaSeq);
               sequencer.setCorrect(false);
-              logger.info("Sequencer " + sequencer.getName() + " sequenced fascia with sku "
+              logger.info("System: Sequencer " + sequencer.getName() + " sequenced fascia with sku "
                   + fasciaSeq.getSku());
             }
             if (sequencer.getFascias().size() == 8) {
               if (!sequencer.isCorrect()) {
-                reader.fixSequencingError(sequencer, pickedFascias, pickers.get(0));
+                reader.fixError(sequencer, pickedFascias, pickers.get(0));
               } else {
                 logger.info("System: Orders with request ID "
                     + sequencer.getToBeSequenced().getRequestId() + " are sequenced.");
@@ -422,9 +427,9 @@ public class Reader {
         }
       }
       scanner.close();
-      logger.info("All events are done.");
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
+      logger.info("System: All events are done.");
+    } catch (FileNotFoundException error) {
+      error.printStackTrace();
     }
   }
 }
