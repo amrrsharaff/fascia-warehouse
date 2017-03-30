@@ -1,4 +1,6 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
@@ -41,9 +43,7 @@ public class Testing {
     assertEquals(sequencer.compare(fascias, invertedFascias), false);
     assertEquals(sequencer.compare(fascia1, fascia2), false);
     assertEquals(sequencer.compare(fascia1, fascia1), true);
-    assertEquals(sequencer.isCorrect(), true);
-    assertEquals(sequencer.getRescannedSKUs().size(), 0);
-    
+    assertEquals(sequencer.isCorrect(), true);    
     fascia1.setLocation("A000");
     for(int i = 0; i < invertedFascias.size(); i++){
       invertedFascias.get(i).fasciaCount = 5;
@@ -51,8 +51,9 @@ public class Testing {
     Replenisher replenisher = new Replenisher();
     replenisher.replenish("A000", invertedFascias);
     assertEquals(30, fascia1.fasciaCount);
-    
-    
+     
+    sequencer.rescan("123", invertedFascias, picker);
+    assertEquals(sequencer.getRescannedSKUs().size(), 1);
   }
     
   @Test
@@ -93,8 +94,6 @@ public class Testing {
     fasciaGroup.setLoaded(false);
     fasciaGroup.setRequestId(2);
     assertEquals(fasciaGroup.getRequestId(), 2);
-    
-    // TODO is setloaded, isloaded usefull?
     fasciaGroup.setLoaded(true);
     assertEquals(fasciaGroup.isLoaded(), true);
 }
