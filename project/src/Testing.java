@@ -237,5 +237,15 @@ public class Testing {
     assertEquals(loader.getToBeProcessed(), loadOrder);
   }
   @Test
-  
+  public void testWorker(){
+    ArrayList<String> skus = new ArrayList<>();
+    skus.add("1");
+    skus.add("2");
+    skus.add("3");
+    skus.add("4");
+    skus.add("5");
+    skus.add("6");
+    skus.add("7");
+    skus.add("8");
+  }
 }

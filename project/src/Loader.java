@@ -16,19 +16,16 @@ public class Loader extends Worker {
   // *
   // * @param group a group of 8 fascias.
   // */
-<<<<<<< HEAD
   public void load() {
     // // Loader replies saying the picking request is laoded.
     logger.info("Loader " + this.name + ": Picking request with id "
         + this.getToBeProcessed().getRequestId() + " is loaded.");
   }
-=======
   // public void load() {
   // // Loader replies saying the picking request is laoded.
   // logger.info("Loader " + this.name + ": Picking request with id "
   // + this.getToBeProcessed().getRequestId() + " is loaded.");
   // }
->>>>>>> a4f7f2b6d99886050d09038aab2608227c526293
 
 
   // public Order getToBeProcessed() {
