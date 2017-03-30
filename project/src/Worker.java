@@ -30,10 +30,9 @@ public abstract class Worker {
    * Rescans a fascia and finds it in the database using the sku number.
    * 
    * @param sku The SKU number of the fascia that was rescanned.
-   * @param allFascia All of the fascia in the warehouse.
    * @param the picker who repicks the wrong fascia.
    */
-  public void rescan(String sku, ArrayList<Fascia> allFascia, Picker picker) {
+  public void rescan(String sku, Picker picker) {
     // We know the if statement will be accessed because something not in the warehouse, cannot be
     // scanned.
     int index = rescannedSKUs.size();

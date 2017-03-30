@@ -375,7 +375,7 @@ public class Reader {
                 sequencer = oldSequencer;
               }
             }
-            sequencer.rescan(parts[3], fascias, pickers.get(0));
+            sequencer.rescan(parts[3], pickers.get(0));
           }
 
         } else if (parts[0].equals("Loader")) { // load if it's a loader
@@ -429,7 +429,7 @@ public class Reader {
             }
             logger.info("System: Loader " + loader.getName() + ", scan the fascia with SKU "
                 + parts[3] + ".");
-            loader.rescan(parts[3], fascias, pickers.get(0));
+            loader.rescan(parts[3], pickers.get(0));
           } else if (parts[2].equals("rescans")) {
             for (Loader oldLoader : loaders) {
               if (oldLoader.getName().equals(parts[1])) {
@@ -438,7 +438,7 @@ public class Reader {
             }
             logger.warning("System: Loader " + loader.getName() + ", rescan the fascia with SKU "
                 + parts[3] + ".");
-            loader.rescan(parts[3], fascias, pickers.get(0));
+            loader.rescan(parts[3], pickers.get(0));
           }
         }
       }

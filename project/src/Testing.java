@@ -247,5 +247,27 @@ public class Testing {
     skus.add("6");
     skus.add("7");
     skus.add("8");
+    Sequencer sequencer = new Sequencer("Amr");
+    sequencer.setRescannedSKUs(skus);
+    assertEquals(sequencer.getRescannedSKUs().get(0), "1");
+    Fascia fascia1 = new Fascia("Black", "SES", "123", true);
+    Fascia fascia2 = new Fascia("Black", "SES", "124", false);
+    Fascia fascia3 = new Fascia("Black", "SES", "125", true);
+    Fascia fascia4 = new Fascia("Black", "SES", "126", false);
+    Fascia fascia5 = new Fascia("Black", "SES", "127", true);
+    Fascia fascia6 = new Fascia("Black", "SES", "128", false);
+    Fascia fascia7 = new Fascia("Black", "SES", "129", true);
+    Fascia fascia8 = new Fascia("Black", "SES", "130", false);
+    fascias.add(fascia1);
+    fascias.add(fascia2);
+    fascias.add(fascia3);
+    fascias.add(fascia4);
+    fascias.add(fascia5);
+    fascias.add(fascia6);
+    fascias.add(fascia7);
+    fascias.add(fascia8);
+    Picker picker = new Picker("Default", 1);
+    sequencer.setRescannedSKUs(new ArrayList<String>());
+    sequencer.rescan("1", picker);
   }
 }
