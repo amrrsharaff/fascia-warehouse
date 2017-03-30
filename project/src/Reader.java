@@ -19,6 +19,7 @@ public class Reader {
    * Sets up the logger to log events and messages in the system.
    * 
    * @throws IOException
+   *    throws ioexception.
    */
   private static void setupLogger() throws IOException {
     // gets rid of any handling that the root Logger has in order to avoid duplicate console
