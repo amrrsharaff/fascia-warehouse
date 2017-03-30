@@ -19,6 +19,7 @@ public class Reader {
    * Sets up the logger to log events and messages in the system.
    * 
    * @throws IOException
+   *    throws ioexception.
    */
   private static void setupLogger() throws IOException {
     // gets rid of any handling that the root Logger has in order to avoid duplicate console
@@ -192,7 +193,7 @@ public class Reader {
     ArrayList<Sequencer> sequencers = new ArrayList<>();
     ArrayList<Loader> loaders = new ArrayList<>();
 
-    File file1 = new File("../translation.csv"); // /Users/Omar/CSC207/group_0423/project
+    File file1 = new File("../translation.csv");
     File file2 = new File("../traversal_table.csv");
     File file3 = new File("../initial.csv");
     File file4 = new File(path);
@@ -336,7 +337,7 @@ public class Reader {
             }
             // Reset the sequencer's variables.
             sequencer.setSequencedFascias(new ArrayList<Fascia>());
-            sequencer.setRescannedSKUs(new ArrayList<String>());
+            sequencer.setRescannedSkus(new ArrayList<String>());
             sequencer.setCorrect(true);
             logger.info("System: Sequencer " + parts[1] + " is ready");
 
@@ -409,7 +410,7 @@ public class Reader {
                 loader.setToBeProcessed(orderLoaded);
               }
             }
-            loader.setRescannedSKUs(new ArrayList<String>());
+            loader.setRescannedSkus(new ArrayList<String>());
             logger.info("Loader " + parts[1] + " is ready");
 
           } else if (parts[2].equals("loads")) {

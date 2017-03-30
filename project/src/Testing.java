@@ -46,7 +46,7 @@ public class Testing {
     invertedFascias.add(fascia8);
 
     assertEquals(sequencer.isCorrect(), true);
-    assertEquals(sequencer.getRescannedSKUs().size(), 0);
+    assertEquals(sequencer.getRescannedSkus().size(), 0);
 
     fascia1.setLocation("A000");
     for (int i = 0; i < invertedFascias.size(); i++) {
@@ -248,8 +248,8 @@ public class Testing {
     skus.add("7");
     skus.add("8");
     Sequencer sequencer = new Sequencer("Amr");
-    sequencer.setRescannedSKUs(skus);
-    assertEquals(sequencer.getRescannedSKUs().get(0), "1");
+    sequencer.setRescannedSkus(skus);
+    assertEquals(sequencer.getRescannedSkus().get(0), "1");
     Fascia fascia1 = new Fascia("Black", "SES", "123", true);
     Fascia fascia2 = new Fascia("Black", "SES", "124", false);
     Fascia fascia3 = new Fascia("Black", "S", "125", true);
@@ -267,6 +267,7 @@ public class Testing {
     fascias.add(fascia7);
     fascias.add(fascia8);
     Picker picker = new Picker("Default", 1);
+<<<<<<< HEAD
     sequencer.setRescannedSKUs(new ArrayList<String>());
     ArrayList<String> order1 = new ArrayList<>();
     ArrayList<String> order2 = new ArrayList<>();
@@ -288,6 +289,9 @@ public class Testing {
     Order order = new Order(orders);
     sequencer.setToBeProcessed(order);
     sequencer.getToBeProcessed().findFascia(fascias);
+=======
+    sequencer.setRescannedSkus(new ArrayList<String>());
+>>>>>>> e2cedc5381934c363c69d6e344430e42e8d9a578
     sequencer.rescan("1", picker);
     assertEquals(sequencer.getRescannedSKUs().get(0), "123");
     sequencer.rescan("124", picker);

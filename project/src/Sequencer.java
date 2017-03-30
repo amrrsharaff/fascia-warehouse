@@ -26,14 +26,6 @@ public class Sequencer extends Worker {
     setCorrect(true);
   }
 
-  // public void setToBeProcessed(Order toBeSequenced) {
-  // this.toBeSequenced = toBeSequenced;
-  // }
-
-  // public Order getToBeProcessed() {
-  // return toBeSequenced;
-  // }
-
   public boolean isCorrect() {
     return correct;
   }
