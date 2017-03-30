@@ -3,17 +3,19 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import org.junit.Test;
 
 public class Testing {
   ArrayList<Fascia> fascias = new ArrayList<Fascia>();
   ArrayList<Fascia> invertedFascias = new ArrayList<Fascia>();
+  static final Logger logger = Logger.getLogger(Reader.class.getName());
 
   @Test
   public void testSequencerAndReplenisher() {
-
     String name = "Ashley";
     Sequencer sequencer = new Sequencer("Ashley");
     Picker picker = new Picker("Lindsey", 0);
@@ -54,8 +56,12 @@ public class Testing {
     replenisher.replenish("A000", invertedFascias);
     assertEquals(30, fascia1.fasciaCount);
      
+    assertEquals(sequencer.getSequencedFascias().size(), 0);
+    sequencer.setSequencedFascias(fascias);
+    assertEquals(sequencer.getSequencedFascias(), fascias);
     sequencer.rescan("123", invertedFascias, picker);
     assertEquals(sequencer.getRescannedSKUs().size(), 1);
+    
   }
     
   @Test
@@ -180,8 +186,6 @@ public class Testing {
     picker.clearFascias();
     for (int i = 0; i < 25; i++) {
       picker.pickFascia(fascias.get(0).getSku(), fascias);
-      System.out.println(fascias.get(0).fasciaCount);
-
       if (picker.isDone()){
 
         picker.clearFascias();
@@ -218,8 +222,8 @@ public class Testing {
   
   @Test
   public void testReader(){
-    Reader reader = new Reader();
-    reader.readFascias(new File("../translation.csv"), fascias);
+//    Reader reader = new Reader();
+//    reader.readFascias(new File("../translation.csv"), fascias);
     
 //    assertEquals(fascias.size(), 24);
 //    System.out.println(fascias.size());

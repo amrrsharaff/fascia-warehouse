@@ -333,18 +333,18 @@ public class Reader {
               }
             }
             Fascia fasciaSeq =
-                sequencer.getToBeProcessed().getOrderFascia().get(sequencer.getFascias().size());
+                sequencer.getToBeProcessed().getOrderFascia().get(sequencer.getSequencedFascias().size());
             if (parts[3].equals(fasciaSeq.getSku())) {
-              sequencer.getFascias().add(fasciaSeq);
+              sequencer.getSequencedFascias().add(fasciaSeq);
               logger.info("System: Sequencer " + sequencer.getName() + " sequenced fascia with sku "
                   + fasciaSeq.getSku());
             } else {
-              sequencer.getFascias().add(fasciaSeq);
+              sequencer.getSequencedFascias().add(fasciaSeq);
               sequencer.setCorrect(false);
               logger.info("System: Sequencer " + sequencer.getName() + " sequenced fascia with sku "
                   + fasciaSeq.getSku());
             }
-            if (sequencer.getFascias().size() == 8) {
+            if (sequencer.getSequencedFascias().size() == 8) {
               if (!sequencer.isCorrect()) {
                 reader.fixError(sequencer, pickedFascias, pickers.get(0));
               } else {

@@ -30,9 +30,7 @@ public class Sequencer extends Worker {
 //    this.toBeSequenced = toBeSequenced;
 //  }
 
-  public ArrayList<Fascia> getFascias() {
-    return sequencedFascias;
-  }
+
 
 //  public Order getToBeProcessed() {
 //    return toBeSequenced;
