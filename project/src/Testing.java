@@ -204,6 +204,7 @@ public class Testing {
     fascias.add(fascia3);
     fascias.add(fascia2);
     fascias.add(fascia1);
+
     // loader.rescan(fascias.get(0).getSku(), fascias, picker);
   }
   
