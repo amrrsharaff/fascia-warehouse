@@ -192,7 +192,7 @@ public class Reader {
     ArrayList<Sequencer> sequencers = new ArrayList<>();
     ArrayList<Loader> loaders = new ArrayList<>();
 
-    File file1 = new File("../translation.csv"); // /Users/Omar/CSC207/group_0423/project
+    File file1 = new File("../translation.csv");
     File file2 = new File("../traversal_table.csv");
     File file3 = new File("../initial.csv");
     File file4 = new File(path);
