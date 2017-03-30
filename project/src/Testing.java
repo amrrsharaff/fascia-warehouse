@@ -252,12 +252,12 @@ public class Testing {
     assertEquals(sequencer.getRescannedSKUs().get(0), "1");
     Fascia fascia1 = new Fascia("Black", "SES", "123", true);
     Fascia fascia2 = new Fascia("Black", "SES", "124", false);
-    Fascia fascia3 = new Fascia("Black", "SES", "125", true);
-    Fascia fascia4 = new Fascia("Black", "SES", "126", false);
-    Fascia fascia5 = new Fascia("Black", "SES", "127", true);
-    Fascia fascia6 = new Fascia("Black", "SES", "128", false);
-    Fascia fascia7 = new Fascia("Black", "SES", "129", true);
-    Fascia fascia8 = new Fascia("Black", "SES", "130", false);
+    Fascia fascia3 = new Fascia("Black", "S", "125", true);
+    Fascia fascia4 = new Fascia("Black", "S", "126", false);
+    Fascia fascia5 = new Fascia("Black", "SS", "127", true);
+    Fascia fascia6 = new Fascia("Black", "SS", "128", false);
+    Fascia fascia7 = new Fascia("Black", "SE", "129", true);
+    Fascia fascia8 = new Fascia("Black", "SE", "130", false);
     fascias.add(fascia1);
     fascias.add(fascia2);
     fascias.add(fascia3);
@@ -268,6 +268,29 @@ public class Testing {
     fascias.add(fascia8);
     Picker picker = new Picker("Default", 1);
     sequencer.setRescannedSKUs(new ArrayList<String>());
+    ArrayList<String> order1 = new ArrayList<>();
+    ArrayList<String> order2 = new ArrayList<>();
+    ArrayList<String> order3 = new ArrayList<>();
+    ArrayList<String> order4 = new ArrayList<>();
+    order1.add("SES");
+    order2.add("S");
+    order3.add("SS");
+    order4.add("SE");
+    order1.add("Black");
+    order2.add("Black");
+    order3.add("Black");
+    order4.add("Black");
+    ArrayList<ArrayList<String>> orders = new ArrayList<>();
+    orders.add(order1);
+    orders.add(order2);
+    orders.add(order3);
+    orders.add(order4);
+    Order order = new Order(orders);
+    sequencer.setToBeProcessed(order);
+    sequencer.getToBeProcessed().findFascia(fascias);
     sequencer.rescan("1", picker);
+    assertEquals(sequencer.getRescannedSKUs().get(0), "123");
+    sequencer.rescan("124", picker);
+    assertEquals(sequencer.getRescannedSKUs().get(1), "124");
   }
 }
