@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-=======
-import static org.junit.Assert.*;
->>>>>>> e6d66c49d959c3d6a93bb0bf37521dd37b7fc977
 
+import static org.junit.Assert.*;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import org.junit.Test;
@@ -13,14 +10,10 @@ import org.junit.Test;
 public class Testing {
   ArrayList<Fascia> fascias = new ArrayList<Fascia>();
   ArrayList<Fascia> invertedFascias = new ArrayList<Fascia>();
-<<<<<<< HEAD
-  @Test
-  public void testSequencerAndReplenisher(){
-=======
 
   @Test
   public void testSequencerAndReplenisher() {
->>>>>>> e6d66c49d959c3d6a93bb0bf37521dd37b7fc977
+
     String name = "Ashley";
     Sequencer sequencer = new Sequencer("Ashley");
     Picker picker = new Picker("Lindsey", 0);
@@ -41,7 +34,6 @@ public class Testing {
     fascias.add(fascia3);
     fascias.add(fascia2);
     fascias.add(fascia1);
-    assertEquals(sequencer.compare(fascias, fascias), true);
     invertedFascias.add(fascia1);
     invertedFascias.add(fascia2);
     invertedFascias.add(fascia3);
@@ -50,26 +42,17 @@ public class Testing {
     invertedFascias.add(fascia6);
     invertedFascias.add(fascia7);
     invertedFascias.add(fascia8);
-    assertEquals(sequencer.compare(fascias, invertedFascias), false);
-    assertEquals(sequencer.compare(fascia1, fascia2), false);
-    assertEquals(sequencer.compare(fascia1, fascia1), true);
-<<<<<<< HEAD
-    assertEquals(sequencer.isCorrect(), true);    
-    fascia1.setLocation("A000");
-    for(int i = 0; i < invertedFascias.size(); i++){
-=======
+
     assertEquals(sequencer.isCorrect(), true);
     assertEquals(sequencer.getRescannedSKUs().size(), 0);
 
     fascia1.setLocation("A000");
     for (int i = 0; i < invertedFascias.size(); i++) {
->>>>>>> e6d66c49d959c3d6a93bb0bf37521dd37b7fc977
       invertedFascias.get(i).fasciaCount = 5;
     }
     Replenisher replenisher = new Replenisher();
     replenisher.replenish("A000", invertedFascias);
     assertEquals(30, fascia1.fasciaCount);
-<<<<<<< HEAD
      
     sequencer.rescan("123", invertedFascias, picker);
     assertEquals(sequencer.getRescannedSKUs().size(), 1);
@@ -77,14 +60,6 @@ public class Testing {
     
   @Test
   public void testFascia(){
-=======
-
-
-  }
-
-  @Test
-  public void testFascia() {
->>>>>>> e6d66c49d959c3d6a93bb0bf37521dd37b7fc977
     Fascia fascia = new Fascia("black", "SES", "123", true);
     assertEquals("black", fascia.getColour());
     assertEquals("SES", fascia.getModelNumber());
@@ -93,14 +68,9 @@ public class Testing {
     fascia.setLocation("A000");
     assertEquals(fascia.getLocation(), "A000");
   }
-<<<<<<< HEAD
-  @Test
-  public void testFasciaGroup(){
-=======
 
   @Test
   public void testFasciaGroup() {
->>>>>>> e6d66c49d959c3d6a93bb0bf37521dd37b7fc977
     Fascia fascia1 = new Fascia("Black", "SES", "123", true);
     Fascia fascia2 = new Fascia("Black", "SES", "124", false);
     Fascia fascia3 = new Fascia("Black", "SES", "125", true);
@@ -127,23 +97,13 @@ public class Testing {
     fasciaGroup.setLoaded(false);
     fasciaGroup.setRequestId(2);
     assertEquals(fasciaGroup.getRequestId(), 2);
-<<<<<<< HEAD
     fasciaGroup.setLoaded(true);
     assertEquals(fasciaGroup.isLoaded(), true);
 }
   
-  @Test
-  public void testOrder(){
-=======
-
-    // TODO is setloaded, isloaded usefull?
-    fasciaGroup.setLoaded(true);
-    assertEquals(fasciaGroup.isLoaded(), true);
-  }
 
   @Test
   public void testOrder() {
->>>>>>> e6d66c49d959c3d6a93bb0bf37521dd37b7fc977
     ArrayList<String> order1 = new ArrayList<>();
     ArrayList<String> order2 = new ArrayList<>();
     ArrayList<String> order3 = new ArrayList<>();
@@ -183,11 +143,7 @@ public class Testing {
     order.findFascia(invertedFascias);
     assertEquals(order.getOrderFascia(), invertedFascias);
   }
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> e6d66c49d959c3d6a93bb0bf37521dd37b7fc977
   @Test
   public void testPicker() {
     Picker picker = new Picker("Peter", 1);
@@ -219,30 +175,21 @@ public class Testing {
     picker.pickFascia("128", fascias);
     picker.pickFascia("129", fascias);
     picker.pickFascia("130", fascias);
-<<<<<<< HEAD
-    assertEquals(picker.isDone(), true);   
-=======
+
     assertEquals(picker.isDone(), true);
->>>>>>> e6d66c49d959c3d6a93bb0bf37521dd37b7fc977
     picker.clearFascias();
     for (int i = 0; i < 25; i++) {
       picker.pickFascia(fascias.get(0).getSku(), fascias);
       System.out.println(fascias.get(0).fasciaCount);
-<<<<<<< HEAD
+
       if (picker.isDone()){
-=======
-      if (picker.isDone()) {
->>>>>>> e6d66c49d959c3d6a93bb0bf37521dd37b7fc977
+
         picker.clearFascias();
       }
     }
     picker.pickFascia("130", fascias);
   }
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> e6d66c49d959c3d6a93bb0bf37521dd37b7fc977
   @Test
   public void testLoader() {
     Loader loader = new Loader("Larry");
@@ -264,30 +211,24 @@ public class Testing {
     fascias.add(fascia3);
     fascias.add(fascia2);
     fascias.add(fascia1);
-<<<<<<< HEAD
+
 
     // loader.rescan(fascias.get(0).getSku(), fascias, picker);
   }
   
-//  @Test
-//  public void testReader(){ 
-//    String[] args = new String[3];
-//    String[] args2 = new String[0];
-//    Reader.main(args);
-//    Reader.main(args2);
-//    
-//  }
-=======
-    // loader.rescan(fascias.get(0).getSku(), fascias, picker);
+  @Test
+  public void testReader(){
+    Reader reader = new Reader();
+    reader.readFascias(new File("../translation.csv"), fascias);
+    
+//    assertEquals(fascias.size(), 24);
+//    System.out.println(fascias.size());
+    
+    String[] args = new String[3];
+    String[] args2 = new String[0];
+    Reader.main(args);
+    Reader.main(args2);
+    
   }
 
-  // @Test
-  // public void testReader(){
-  // String[] args = new String[3];
-  // String[] args2 = new String[0];
-  // Reader.main(args);
-  // Reader.main(args2);
-  //
-  // }
->>>>>>> e6d66c49d959c3d6a93bb0bf37521dd37b7fc977
 }

@@ -28,7 +28,7 @@ public class Loader extends Worker {
   public void load() {
     // Loader replies saying the picking request is laoded.
     logger.info("Loader " + this.name + ": Picking request with id "
-        + this.getToBeLoaded().getRequestId() + " is loaded.");
+        + this.getToBeProcessed().getRequestId() + " is loaded.");
   }
 
   /**
@@ -56,12 +56,12 @@ public class Loader extends Worker {
     }
   }
 
-  public Order getToBeLoaded() {
-    return toBeLoaded;
-  }
-
-  public void setToBeLoaded(Order toBeLoaded) {
-    this.toBeLoaded = toBeLoaded;
-  }
+//  public Order getToBeProcessed() {
+//    return toBeLoaded;
+//  }
+//
+//  public void setToBeProcessed(Order toBeLoaded) {
+//    this.toBeLoaded = toBeLoaded;
+//  }
 
 }
