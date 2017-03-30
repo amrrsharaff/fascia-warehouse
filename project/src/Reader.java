@@ -336,7 +336,7 @@ public class Reader {
             }
             // Reset the sequencer's variables.
             sequencer.setSequencedFascias(new ArrayList<Fascia>());
-            sequencer.setRescannedSKUs(new ArrayList<String>());
+            sequencer.setRescannedSkus(new ArrayList<String>());
             sequencer.setCorrect(true);
             logger.info("System: Sequencer " + parts[1] + " is ready");
 
@@ -409,7 +409,7 @@ public class Reader {
                 loader.setToBeProcessed(orderLoaded);
               }
             }
-            loader.setRescannedSKUs(new ArrayList<String>());
+            loader.setRescannedSkus(new ArrayList<String>());
             logger.info("Loader " + parts[1] + " is ready");
 
           } else if (parts[2].equals("loads")) {

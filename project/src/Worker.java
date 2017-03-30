@@ -11,7 +11,7 @@ public abstract class Worker {
   protected String name;
 
   /** The fascias to be rescanned. */
-  protected ArrayList<String> rescannedSKUs = new ArrayList<String>();
+  protected ArrayList<String> rescannedSkus = new ArrayList<String>();
 
   /** Order to be processed. */
   protected Order toBeProcessed;
@@ -29,18 +29,20 @@ public abstract class Worker {
   /**
    * Rescans a fascia and finds it in the database using the sku number.
    * 
-   * @param sku The SKU number of the fascia that was rescanned.
-   * @param the picker who repicks the wrong fascia.
+   * @param sku 
+   *    The SKU number of the fascia that was rescanned.
+   * @param picker 
+   *    The picker who repicks the wrong fascia.
    */
   public void rescan(String sku, Picker picker) {
     // We know the if statement will be accessed because something not in the warehouse, cannot be
     // scanned.
-    int index = rescannedSKUs.size();
+    int index = rescannedSkus.size();
     String jobName = this.getClass().getSimpleName();
     ArrayList<Fascia> fascias = toBeProcessed.getOrderFascia();
     if (fascias.get(index).getSku().equals(sku)) {
       logger.info(jobName + " " + this.name + ": Fascia with SKU " + sku + " rescanned.");
-      rescannedSKUs.add(sku);
+      rescannedSkus.add(sku);
     } else {
       logger.info(jobName + " " + this.name + ": Fascia with SKU " + sku + " rescanned.");
       logger.warning("System: Fascias unmatched, there was an error in picking.");
@@ -50,22 +52,22 @@ public abstract class Worker {
           + fascias.get(index).getSku() + ".");
       logger.info("Picker " + picker.getName() + ": Fascia with SKU " + fascias.get(index).getSku()
           + " repicked.");
-      rescannedSKUs.add(fascias.get(index).getSku());
+      rescannedSkus.add(fascias.get(index).getSku());
     }
   }
 
   /** Get the SKUs that the worker has rescanned. */
-  public ArrayList<String> getRescannedSKUs() {
-    return rescannedSKUs;
+  public ArrayList<String> getRescannedSkus() {
+    return rescannedSkus;
   }
 
   /**
    * Set the SKUs that the worker has already rescanned.
    * 
-   * @param rescannedSKUs An arraylist of the rescanned SKUs.
+   * @param rescannedSkus An arraylist of the rescanned SKUs.
    */
-  public void setRescannedSKUs(ArrayList<String> rescannedSKUs) {
-    this.rescannedSKUs = rescannedSKUs;
+  public void setRescannedSkus(ArrayList<String> rescannedSkus) {
+    this.rescannedSkus = rescannedSkus;
   }
 
   public Order getToBeProcessed() {
