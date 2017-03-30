@@ -16,12 +16,4 @@ public class Loader extends Worker {
     logger.info("Loader " + this.name + ": Picking request with id "
         + this.getToBeProcessed().getRequestId() + " is loaded.");
   }
-
-  // public Order getToBeProcessed() {
-  // return toBeLoaded;
-  // }
-  //
-  // public void setToBeProcessed(Order toBeLoaded) {
-  // this.toBeLoaded = toBeLoaded;
-  // }
 }
