@@ -18,3 +18,12 @@ Amr Sharaf:
 Revised by Amr Sharaf
 
 Omar Sherif: 
+
+Michael Brendan Taylor-James (joined in phase 2):
+1) Added testing method testPicker.
+2) Fixed some checkstyle warnings.
+3) Resolved merge conflicts with the group.
+4) Removed duplicate code from Sequencer and Loader.
+5) Implemented rescan method in the worker abstract class.
+6) Wrote if-statements that allows arguments to be used in the command line.
+
