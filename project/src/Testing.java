@@ -267,8 +267,7 @@ public class Testing {
     fascias.add(fascia7);
     fascias.add(fascia8);
     Picker picker = new Picker("Default", 1);
-<<<<<<< HEAD
-    sequencer.setRescannedSKUs(new ArrayList<String>());
+    sequencer.setRescannedSkus(new ArrayList<String>());
     ArrayList<String> order1 = new ArrayList<>();
     ArrayList<String> order2 = new ArrayList<>();
     ArrayList<String> order3 = new ArrayList<>();
@@ -289,12 +288,11 @@ public class Testing {
     Order order = new Order(orders);
     sequencer.setToBeProcessed(order);
     sequencer.getToBeProcessed().findFascia(fascias);
-=======
+
     sequencer.setRescannedSkus(new ArrayList<String>());
->>>>>>> e2cedc5381934c363c69d6e344430e42e8d9a578
     sequencer.rescan("1", picker);
-    assertEquals(sequencer.getRescannedSKUs().get(0), "123");
+    assertEquals(sequencer.getRescannedSkus().get(0), "123");
     sequencer.rescan("124", picker);
-    assertEquals(sequencer.getRescannedSKUs().get(1), "124");
+    assertEquals(sequencer.getRescannedSkus().get(1), "124");
   }
 }
