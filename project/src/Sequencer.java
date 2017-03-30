@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * A sequencer.
+ * A sequencer in the warehouse.
  */
 public class Sequencer extends Worker {
 
@@ -26,17 +26,17 @@ public class Sequencer extends Worker {
     setCorrect(true);
   }
 
-//  public void setToBeProcessed(Order toBeSequenced) {
-//    this.toBeSequenced = toBeSequenced;
-//  }
+  // public void setToBeProcessed(Order toBeSequenced) {
+  // this.toBeSequenced = toBeSequenced;
+  // }
 
 
 
-//  public Order getToBeProcessed() {
-//    return toBeSequenced;
-//  }
+  // public Order getToBeProcessed() {
+  // return toBeSequenced;
+  // }
 
- 
+
 
   public boolean isCorrect() {
     return correct;

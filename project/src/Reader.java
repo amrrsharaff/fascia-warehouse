@@ -120,7 +120,7 @@ public class Reader {
       error.printStackTrace();
     }
   }
-  
+
   /**
    * Fixes any error in picking which showed up during sequencing.
    * 
@@ -130,33 +130,29 @@ public class Reader {
    */
   public void fixError(Sequencer sequencer, ArrayList<FasciaGroup> fascias, Picker picker) {
     int index = 0;
-    logger.warning(
-        "System: Orders with request ID " + sequencer.getToBeProcessed().getRequestId()
-            + " were found to have an incorrect fascia received by " + "sequencer "
-            + sequencer.getName() + ".");
+    logger.warning("System: Orders with request ID " + sequencer.getToBeProcessed().getRequestId()
+        + " were found to have an incorrect fascia received by " + "sequencer "
+        + sequencer.getName() + ".");
     logger.warning("System: This set of fascias are thrown away.");
     for (FasciaGroup group : fascias) {
       // If they have the same ID, remove the group, and re-pick.
       if (group.getRequestId() == sequencer.getToBeProcessed().getRequestId()) {
         index = fascias.indexOf(group);
         fascias.remove(group);
-        FasciaGroup repickedGroup =
-            new FasciaGroup(sequencer.getToBeProcessed().getOrderFascia(),
-                sequencer.getToBeProcessed().getRequestId());
+        FasciaGroup repickedGroup = new FasciaGroup(sequencer.getToBeProcessed().getOrderFascia(),
+            sequencer.getToBeProcessed().getRequestId());
         repickedGroup.setSequenced(true);
         fascias.add(index, repickedGroup);
         sequencer.setSequencedFascias(sequencer.getToBeProcessed().getOrderFascia());
-        logger.warning("System: Picker " + picker.getName()
-            + " repick Orders with request ID "
+        logger.warning("System: Picker " + picker.getName() + " repick Orders with request ID "
             + sequencer.getToBeProcessed().getRequestId());
         logger.info("Picker " + picker.getName() + ": Orders with request ID "
-            + sequencer.getToBeProcessed().getRequestId()
-            + " is now repicked correctly.");
+            + sequencer.getToBeProcessed().getRequestId() + " is now repicked correctly.");
         break;
       }
     }
   }
-  
+
   /**
    * Runs the warehouse.
    * 
@@ -176,25 +172,23 @@ public class Reader {
     }
     Reader reader = new Reader();
     int nextGroup = 0;
-    
+
     // All sets of orders in the system.
     ArrayList<Order> groups = new ArrayList<>();
-    
+
     // All fascias in the system.
     ArrayList<Fascia> fascias = new ArrayList<>();
-    
+
     // All groups of fascias that have been picked.
     ArrayList<FasciaGroup> pickedFascias = new ArrayList<>();
-   
+
     // A single order that is received.
     ArrayList<ArrayList<String>> orders = new ArrayList<>();
-    
+
     // All pickers, sequencers, and loaders in the system.
     ArrayList<Picker> pickers = new ArrayList<>();
     ArrayList<Sequencer> sequencers = new ArrayList<>();
     ArrayList<Loader> loaders = new ArrayList<>();
-    
-    
 
     File file1 = new File("../translation.csv"); // /Users/Omar/CSC207/group_0423/project
     File file2 = new File("../traversal_table.csv");
@@ -232,7 +226,7 @@ public class Reader {
           // if that's a pick
         } else if (parts[0].equals("Picker")) {
           // declaring a ready picker
-          if (parts[2].equals("ready")) { 
+          if (parts[2].equals("ready")) {
             boolean found = false;
             // check to see if the picker already exists
             for (Picker oldPicker : pickers) {
@@ -288,8 +282,9 @@ public class Reader {
                   FasciaGroup pickedGroup =
                       new FasciaGroup(oldPicker.getFascias(), toBePicked.getRequestId());
                   pickedFascias.add(pickedGroup);
-                  logger.info("System: All fascias in picking request number " + toBePicked.getRequestId()
-                      + " were picked by picker " + oldPicker.getName());
+                  logger.info(
+                      "System: All fascias in picking request number " + toBePicked.getRequestId()
+                          + " were picked by picker " + oldPicker.getName());
                 }
               }
             }
@@ -344,15 +339,15 @@ public class Reader {
             logger.info("System: Sequencer " + parts[1] + " is ready");
 
           } else if (parts[2].equals("sequences")) {
-        	// Find the sequencer that will be sequencing.
+            // Find the sequencer that will be sequencing.
             for (Sequencer oldSequencer : sequencers) {
               if (oldSequencer.getName().equals(parts[1])) {
                 sequencer = oldSequencer;
               }
             }
-            
-            Fascia fasciaSeq =
-                sequencer.getToBeProcessed().getOrderFascia().get(sequencer.getSequencedFascias().size());
+
+            Fascia fasciaSeq = sequencer.getToBeProcessed().getOrderFascia()
+                .get(sequencer.getSequencedFascias().size());
             // Sequence the fascia by comparing the SKU of the original order and the picked one.
             if (parts[3].equals(fasciaSeq.getSku())) {
               sequencer.getSequencedFascias().add(fasciaSeq);
