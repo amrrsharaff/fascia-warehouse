@@ -127,5 +127,4 @@ public class Sequencer {
   public void setCorrect(boolean correct) {
     this.correct = correct;
   }
-
 }
