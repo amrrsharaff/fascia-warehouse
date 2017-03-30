@@ -16,7 +16,11 @@ public abstract class Worker {
   /** Order to be processed. */
   protected Order toBeProcessed;
 
-  /** Initialize a generic warehouse worker. */
+  /**
+   * Initialize a generic warehouse worker.
+   * 
+   * @param name The name of the worker.
+   */
   public Worker(String name) {
     this.name = name;
   }
@@ -29,10 +33,8 @@ public abstract class Worker {
   /**
    * Rescans a fascia and finds it in the database using the sku number.
    * 
-   * @param sku 
-   *    The SKU number of the fascia that was rescanned.
-   * @param picker 
-   *    The picker who repicks the wrong fascia.
+   * @param sku The SKU number of the fascia that was rescanned.
+   * @param picker The picker who repicks the wrong fascia.
    */
   public void rescan(String sku, Picker picker) {
     // We know the if statement will be accessed because something not in the warehouse, cannot be
