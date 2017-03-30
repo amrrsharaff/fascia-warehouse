@@ -215,9 +215,29 @@ public class Testing {
     fascias.add(fascia3);
     fascias.add(fascia2);
     fascias.add(fascia1);
-
-
-    // loader.rescan(fascias.get(0).getSku(), fascias, picker);
+    
+    ArrayList<String> order1 = new ArrayList<>();
+    ArrayList<String> order2 = new ArrayList<>();
+    ArrayList<String> order3 = new ArrayList<>();
+    ArrayList<String> order4 = new ArrayList<>();
+    order1.add("SES");
+    order2.add("SS");
+    order3.add("SE");
+    order4.add("S");
+    order1.add("Black");
+    order2.add("Black");
+    order3.add("Black");
+    order4.add("Black");
+    ArrayList<ArrayList<String>> orders = new ArrayList<>();
+    orders.add(order1);
+    orders.add(order2);
+    orders.add(order3);
+    orders.add(order4);
+    
+    Order loadOrder = new Order(orders);
+    loader.setToBeProcessed(loadOrder);
+    assertEquals(loader.getToBeProcessed(), loadOrder);
+    loader.rescan(fascias.get(0).getSku(), fascias, picker);
   }
   
   @Test
@@ -232,7 +252,6 @@ public class Testing {
     String[] args2 = new String[0];
     Reader.main(args);
     Reader.main(args2);
-    
   }
 
 }

@@ -352,13 +352,8 @@ public class Reader {
             }
             
             Fascia fasciaSeq =
-<<<<<<< HEAD
                 sequencer.getToBeProcessed().getOrderFascia().get(sequencer.getSequencedFascias().size());
-=======
-                sequencer.getToBeProcessed().getOrderFascia().get(sequencer.getFascias().size());
-            
             // Sequence the fascia by comparing the SKU of the original order and the picked one.
->>>>>>> 5db4f5898149375871273a13596c680d023efd59
             if (parts[3].equals(fasciaSeq.getSku())) {
               sequencer.getSequencedFascias().add(fasciaSeq);
               logger.info("System: Sequencer " + sequencer.getName() + " sequenced fascia with sku "
@@ -369,12 +364,7 @@ public class Reader {
               logger.info("System: Sequencer " + sequencer.getName() + " sequenced fascia with sku "
                   + fasciaSeq.getSku());
             }
-<<<<<<< HEAD
             if (sequencer.getSequencedFascias().size() == 8) {
-=======
-            // Size 8 means that all fascias were sequenced.
-            if (sequencer.getFascias().size() == 8) {
->>>>>>> 5db4f5898149375871273a13596c680d023efd59
               if (!sequencer.isCorrect()) {
                 reader.fixError(sequencer, pickedFascias, pickers.get(0));
               } else {
