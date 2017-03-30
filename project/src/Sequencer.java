@@ -1,34 +1,18 @@
 import java.util.ArrayList;
-import java.util.logging.Logger;
 
 /**
  * A sequencer.
  */
-public class Sequencer {
+public class Sequencer extends Worker {
 
-  /** The logger used to log events. */
-  private static final Logger logger = Logger.getLogger(Reader.class.getName());
-  /** The name of the Sequencer. */
-  private String name;
   /** The inventory of the sequencer. */
   private ArrayList<Fascia> sequencedFascias = new ArrayList<Fascia>();
   /** The fascias to be sequenced. */
   private Order toBeSequenced;
-  /** The fascias to be rescanned. */
-  private ArrayList<String> rescannedSKUs = new ArrayList<String>();
+  private boolean correct;
 
   public void setSequencedFascias(ArrayList<Fascia> sequencedFascias) {
     this.sequencedFascias = sequencedFascias;
-  }
-
-  private boolean correct;
-
-  public ArrayList<String> getRescannedSKUs() {
-    return rescannedSKUs;
-  }
-
-  public void setRescannedSKUs(ArrayList<String> rescannedSKUs) {
-    this.rescannedSKUs = rescannedSKUs;
   }
 
   public ArrayList<Fascia> getSequencedFascias() {
@@ -81,11 +65,6 @@ public class Sequencer {
           + " repicked.");
       rescannedSKUs.add(fascias.get(index).getSku());
     }
-  }
-
-
-  public String getName() {
-    return name;
   }
 
   public boolean isCorrect() {
