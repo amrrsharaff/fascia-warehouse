@@ -59,8 +59,6 @@ public class Testing {
     assertEquals(sequencer.getSequencedFascias().size(), 0);
     sequencer.setSequencedFascias(fascias);
     assertEquals(sequencer.getSequencedFascias(), fascias);
-    sequencer.rescan("123", invertedFascias, picker);
-    assertEquals(sequencer.getRescannedSKUs().size(), 1);
     
   }
     
@@ -237,21 +235,5 @@ public class Testing {
     Order loadOrder = new Order(orders);
     loader.setToBeProcessed(loadOrder);
     assertEquals(loader.getToBeProcessed(), loadOrder);
-    loader.rescan(fascias.get(0).getSku(), fascias, picker);
   }
-  
-  @Test
-  public void testReader(){
-//    Reader reader = new Reader();
-//    reader.readFascias(new File("../translation.csv"), fascias);
-    
-//    assertEquals(fascias.size(), 24);
-//    System.out.println(fascias.size());
-    
-    String[] args = new String[3];
-    String[] args2 = new String[0];
-    Reader.main(args);
-    Reader.main(args2);
-  }
-
 }
