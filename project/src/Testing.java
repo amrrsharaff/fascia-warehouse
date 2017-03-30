@@ -1,12 +1,6 @@
-
 import static org.junit.Assert.*;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.logging.Logger;
-
 import org.junit.Test;
 
 public class Testing {
