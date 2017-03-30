@@ -1,10 +1,13 @@
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 /**
  * A sequencer.
  */
 public class Sequencer {
-
+  
+  /** The logger used to log events. */
+  private static final Logger logger = Logger.getLogger(Reader.class.getName());
   /** The name of the Sequencer. */
   private String name;
   /** The inventory of the sequencer. */
@@ -59,10 +62,10 @@ public class Sequencer {
    * @param currentFascia the SKU numbers of the 8 fascia picked up by a picker.
    */
   public boolean compare(ArrayList<Fascia> originalOrder, ArrayList<Fascia> currentFascia) {
-    System.out.println("Sequencer " + getName() + " sequences.");
+    logger.info("Sequencer " + getName() + " sequences.");
     for (int i = 0; i < originalOrder.size(); i++) {
       if (!originalOrder.get(i).getSku().equals(currentFascia.get(i).getSku())) {
-        System.out.println("Fascia with SKU " + originalOrder.get(i).getSku()
+        logger.info("Fascia with SKU " + originalOrder.get(i).getSku()
             + " was incorrectly replaced with Fascia with SKU " + currentFascia.get(i).getSku());
         return false;
       }
@@ -77,9 +80,9 @@ public class Sequencer {
    * @param currentItem the fascia to be compared
    */
   public boolean compare(Fascia originalItem, Fascia currentItem) {
-    System.out.println("Sequencer " + getName() + " sequences.");
+    logger.info("Sequencer " + getName() + " sequences.");
     if (!originalItem.getSku().equals(currentItem.getSku())) {
-      System.out.println("Fascia with SKU " + originalItem.getSku()
+      logger.info("Fascia with SKU " + originalItem.getSku()
           + " was incorrectly replaced with Fascia with SKU " + currentItem.getSku());
       return false;
     } else {
@@ -100,14 +103,14 @@ public class Sequencer {
     int index = rescannedSKUs.size();
     ArrayList<Fascia> fascias = toBeSequenced.getOrderFascia();
     if(fascias.get(index).getSku().equals(sku)){
-      System.out.println("Sequencer " + this.name + ": Fascia with SKU " + sku + " rescanned.");
+      logger.info("Sequencer " + this.name + ": Fascia with SKU " + sku + " rescanned.");
       rescannedSKUs.add(sku);
     } else {
-      System.out.println("Sequencer " + this.name + ": Fascia with SKU " + sku + " rescanned.");
-      System.out.println("System: Fascias unmatched, there was an error in picking.");
-      System.out.println("System: Fascia with SKU " + fascias.get(index).getSku() + " was incorrectly replaced by Fascia with SKU " + sku + ".");
-      System.out.println("System: Picker " + picker.getName() + ", repick the Fascia with SKU " + fascias.get(index).getSku() + ".");
-      System.out.println("Picker " + picker.getName() + ": Fascia with SKU " + fascias.get(index).getSku() + " repicked.");
+      logger.info("Sequencer " + this.name + ": Fascia with SKU " + sku + " rescanned.");
+      logger.warning("System: Fascias unmatched, there was an error in picking.");
+      logger.warning("System: Fascia with SKU " + fascias.get(index).getSku() + " was incorrectly replaced by Fascia with SKU " + sku + ".");
+      logger.warning("System: Picker " + picker.getName() + ", repick the Fascia with SKU " + fascias.get(index).getSku() + ".");
+      logger.info("Picker " + picker.getName() + ": Fascia with SKU " + fascias.get(index).getSku() + " repicked.");
       rescannedSKUs.add(fascias.get(index).getSku());
     }
   }

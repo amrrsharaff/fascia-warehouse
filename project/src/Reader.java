@@ -12,6 +12,7 @@ import java.util.logging.SimpleFormatter;
 
 public class Reader {
 
+  /** The logger used to log events. */
   private static final Logger logger = Logger.getLogger(Reader.class.getName());
 
   /**
@@ -227,7 +228,7 @@ public class Reader {
               nextGroup++;
               pickers.add(newPicker);
             }
-            System.out.println("Picker " + parts[1] + " is ready.");
+            logger.info("Picker " + parts[1] + " is ready.");
           } else if (parts[2].equals("pick")) { // an order to pick
             // look for picker
             Fascia toBePickedFascia = fascias.get(0);
@@ -397,7 +398,8 @@ public class Reader {
             logger.info(
                 "System: Loader " + loader.getName() + ", load the picking request with id "
                     + loader.getToBeLoaded().getRequestId() + ".");
-            loader.load();
+            logger.info("Loader " + loader.getName() + ": Picking request with id "
+                    + loader.getToBeLoaded().getRequestId() + " is loaded.");
           } else if (parts[2].equals("scans")) {
             for (Loader oldLoader : loaders) {
               if (oldLoader.getName().equals(parts[1])) {
