@@ -56,41 +56,6 @@ public class Sequencer {
   }
 
   /**
-   * Compares the original order with the collected fascia to see if they match.
-   * 
-   * @param originalOrder the SKU numbers of the original 8 fascia requested within the order.
-   * @param currentFascia the SKU numbers of the 8 fascia picked up by a picker.
-   */
-  public boolean compare(ArrayList<Fascia> originalOrder, ArrayList<Fascia> currentFascia) {
-    logger.info("Sequencer " + getName() + " sequences.");
-    for (int i = 0; i < originalOrder.size(); i++) {
-      if (!originalOrder.get(i).getSku().equals(currentFascia.get(i).getSku())) {
-        logger.info("Fascia with SKU " + originalOrder.get(i).getSku()
-            + " was incorrectly replaced with Fascia with SKU " + currentFascia.get(i).getSku());
-        return false;
-      }
-    }
-    return true;
-  }
-
-  /**
-   * Compares the original fascia with a collected fascia to see if they match.
-   * 
-   * @param originalItem The original fascia that was ordered
-   * @param currentItem the fascia to be compared
-   */
-  public boolean compare(Fascia originalItem, Fascia currentItem) {
-    logger.info("Sequencer " + getName() + " sequences.");
-    if (!originalItem.getSku().equals(currentItem.getSku())) {
-      logger.info("Fascia with SKU " + originalItem.getSku()
-          + " was incorrectly replaced with Fascia with SKU " + currentItem.getSku());
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  /**
    * Rescans a fascia and finds it in the database using the sku number.
    * 
    * @param sku The SKU number of the fascia that was rescanned.
@@ -130,5 +95,4 @@ public class Sequencer {
   public void setCorrect(boolean correct) {
     this.correct = correct;
   }
-
 }
