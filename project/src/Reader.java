@@ -189,7 +189,7 @@ public class Reader {
     ArrayList<Sequencer> sequencers = new ArrayList<>();
     ArrayList<Loader> loaders = new ArrayList<>();
 
-    File file1 = new File("../translation.csv");
+    File file1 = new File("../translation.csv"); // /Users/Omar/CSC207/group_0423/project
     File file2 = new File("../traversal_table.csv");
     File file3 = new File("../initial.csv");
     File file4 = new File(path);
@@ -436,11 +436,10 @@ public class Reader {
                 loader = oldLoader;
               }
             }
-            logger.info(
-                "System: Loader " + loader.getName() + ", load the picking request with id "
-                    + loader.getToBeLoaded().getRequestId() + ".");
+            logger.info("System: Loader " + loader.getName() + ", load the picking request with id "
+                + loader.getToBeLoaded().getRequestId() + ".");
             logger.info("Loader " + loader.getName() + ": Picking request with id "
-                    + loader.getToBeLoaded().getRequestId() + " is loaded.");
+                + loader.getToBeLoaded().getRequestId() + " is loaded.");
           } else if (parts[2].equals("scans")) {
             for (Loader oldLoader : loaders) {
               if (oldLoader.getName().equals(parts[1])) {
@@ -456,8 +455,8 @@ public class Reader {
                 loader = oldLoader;
               }
             }
-            logger.warning("System: Loader " + loader.getName()
-                + ", rescan the fascia with SKU " + parts[3] + ".");
+            logger.warning("System: Loader " + loader.getName() + ", rescan the fascia with SKU "
+                + parts[3] + ".");
             loader.rescan(parts[3], fascias, pickers.get(0));
           }
         }

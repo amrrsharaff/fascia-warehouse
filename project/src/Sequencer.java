@@ -5,7 +5,7 @@ import java.util.logging.Logger;
  * A sequencer.
  */
 public class Sequencer {
-  
+
   /** The logger used to log events. */
   private static final Logger logger = Logger.getLogger(Reader.class.getName());
   /** The name of the Sequencer. */
@@ -16,7 +16,7 @@ public class Sequencer {
   private Order toBeSequenced;
   /** The fascias to be rescanned. */
   private ArrayList<String> rescannedSKUs = new ArrayList<String>();
-  
+
   public void setSequencedFascias(ArrayList<Fascia> sequencedFascias) {
     this.sequencedFascias = sequencedFascias;
   }
@@ -102,20 +102,23 @@ public class Sequencer {
     // scanned.
     int index = rescannedSKUs.size();
     ArrayList<Fascia> fascias = toBeSequenced.getOrderFascia();
-    if(fascias.get(index).getSku().equals(sku)){
+    if (fascias.get(index).getSku().equals(sku)) {
       logger.info("Sequencer " + this.name + ": Fascia with SKU " + sku + " rescanned.");
       rescannedSKUs.add(sku);
     } else {
       logger.info("Sequencer " + this.name + ": Fascia with SKU " + sku + " rescanned.");
       logger.warning("System: Fascias unmatched, there was an error in picking.");
-      logger.warning("System: Fascia with SKU " + fascias.get(index).getSku() + " was incorrectly replaced by Fascia with SKU " + sku + ".");
-      logger.warning("System: Picker " + picker.getName() + ", repick the Fascia with SKU " + fascias.get(index).getSku() + ".");
-      logger.info("Picker " + picker.getName() + ": Fascia with SKU " + fascias.get(index).getSku() + " repicked.");
+      logger.warning("System: Fascia with SKU " + fascias.get(index).getSku()
+          + " was incorrectly replaced by Fascia with SKU " + sku + ".");
+      logger.warning("System: Picker " + picker.getName() + ", repick the Fascia with SKU "
+          + fascias.get(index).getSku() + ".");
+      logger.info("Picker " + picker.getName() + ": Fascia with SKU " + fascias.get(index).getSku()
+          + " repicked.");
       rescannedSKUs.add(fascias.get(index).getSku());
     }
   }
 
-  
+
   public String getName() {
     return name;
   }
