@@ -23,30 +23,6 @@ public class Loader extends Worker {
         + this.getToBeProcessed().getRequestId() + " is loaded.");
   }
 
-  /**
-   * @param picker The picker who would repick the misplaced fascia had there been any mistake in
-   *        scanning.
-   * @param sku The SKU number of the fascia that is to be scanned
-   * @param allFascia All the fascia in the warehouse.
-   */
-  public void rescan(String sku, ArrayList<Fascia> allFascia, Picker picker) {
-    int index = rescannedSKUs.size();
-    ArrayList<Fascia> fascias = toBeProcessed.getOrderFascia();
-    if (fascias.get(index).getSku().equals(sku)) {
-      logger.info("Sequencer " + this.name + ": Fascia with SKU " + sku + " scanned.");
-      rescannedSKUs.add(sku);
-    } else {
-      logger.info("Loader " + this.name + ": Fascia with SKU " + sku + " scanned.");
-      logger.warning("System: Fascias unmatched, there was an error in picking.");
-      logger.warning("System: Fascia with SKU " + fascias.get(index).getSku()
-          + " was incorrectly replaced by Fascia with SKU " + sku + ".");
-      logger.warning("System: Picker " + picker.getName() + ", repick the Fascia with SKU "
-          + fascias.get(index).getSku() + ".");
-      logger.info("Picker " + picker.getName() + ": Fascia with SKU " + fascias.get(index).getSku()
-          + " repicked.");
-      rescannedSKUs.add(fascias.get(index).getSku());
-    }
-  }
 
 //  public Order getToBeProcessed() {
 //    return toBeLoaded;
