@@ -17,7 +17,11 @@ public class Order {
   /** The fascia required for the order. */
   private ArrayList<Fascia> orderFascia = new ArrayList<>(8);
 
-  /** Initializes an order. */
+  /**
+   * Initializes an order.
+   * 
+   * @param fourOrders
+   */
   public Order(ArrayList<ArrayList<String>> fourOrders) {
     this.fourOrders = fourOrders;
     requestNumb = requestNumb + 1;

@@ -189,8 +189,11 @@ public class Reader {
     ArrayList<Picker> pickers = new ArrayList<>();
     ArrayList<Sequencer> sequencers = new ArrayList<>();
     ArrayList<Loader> loaders = new ArrayList<>();
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> a4f7f2b6d99886050d09038aab2608227c526293
 
     File file1 = new File("../translation.csv"); // /Users/Omar/CSC207/group_0423/project
     File file2 = new File("../traversal_table.csv");

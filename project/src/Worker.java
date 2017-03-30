@@ -12,7 +12,7 @@ public abstract class Worker {
   protected String name;
   /** The fascias to be rescanned. */
   protected ArrayList<String> rescannedSKUs = new ArrayList<String>();
-  
+
   /** Order to be processed. */
   protected Order toBeProcessed;
 
@@ -59,8 +59,12 @@ public abstract class Worker {
   public ArrayList<String> getRescannedSKUs() {
     return rescannedSKUs;
   }
-  
-  /** Set the SKUs that the worker has already rescanned. */
+
+  /**
+   * Set the SKUs that the worker has already rescanned.
+   * 
+   * @param rescannedSKUs
+   */
   public void setRescannedSKUs(ArrayList<String> rescannedSKUs) {
     this.rescannedSKUs = rescannedSKUs;
   }
