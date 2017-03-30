@@ -120,49 +120,32 @@ public class Reader {
       e.printStackTrace();
     }
   }
-
-  /**
-   * The sequencer checks the fascias to make sure if they are correct. If not, the fascia are then
-   * corrected.
-   * 
-   * @param pickedFascias the 8 fascias picked by the picker.
-   * @param groups all the orders currently in the system.
-   * @param sequencer the sequencer to sequence the pickedFascias.
-   * @param picker the picker who will pick the fascia in case there is a mistake.
-   */
-  public void requestSequencer(ArrayList<FasciaGroup> pickedFascias, ArrayList<Order> groups,
-      Sequencer sequencer, Picker picker) {
+  
+  public void fixSequencingError(Sequencer sequencer, ArrayList<FasciaGroup> pickedFascias, Picker picker){
+    int index = 0;
+    logger.warning(
+        "System: Orders with request ID " + sequencer.getToBeSequenced().getRequestId()
+            + " were found to have an incorrect fascia received by " + "sequencer "
+            + sequencer.getName() + ".");
+    logger.warning("System: This set of fascias are thrown away.");
     for (FasciaGroup group : pickedFascias) {
-      if (!group.isSequenced()) {
-        for (Order order : groups) {
-          // if the order and the group of fascia have the same
-          // request ID
-          if (group.getRequestId() == order.getRequestId()) {
-            // have the sequencer compare the original order with
-            // the fascia picked by the picker
-            boolean correct = sequencer.compare(order.getOrderFascia(), group.getFascias());
-            if (!correct) {
-              logger.warning("The order with ID " + order.getRequestId()
-                  + " was not picked correctly. It will be picked again.");
-              // remove the incorrect order
-              int incorrectIndex = pickedFascias.indexOf(group);
-              pickedFascias.remove(incorrectIndex);
-              // add the correct order
-              FasciaGroup correctFascia =
-                  new FasciaGroup(order.getOrderFascia(), order.getRequestId());
-              correctFascia.setSequenced(true);
-              pickedFascias.add(incorrectIndex, correctFascia);
-              logger.info("Picker " + picker.getName() + " re-picked the correct fascias.");
-            } else {
-              logger.info("The order with ID " + order.getRequestId() + " was picked correctly.");
-            }
-            // break;
-          }
-
-        }
-        group.setSequenced(true);
+      if (group.getRequestId() == sequencer.getToBeSequenced().getRequestId()) {
+        index = pickedFascias.indexOf(group);
+        pickedFascias.remove(group);
+        FasciaGroup repickedGroup =
+            new FasciaGroup(sequencer.getToBeSequenced().getOrderFascia(),
+                sequencer.getToBeSequenced().getRequestId());
+        repickedGroup.setSequenced(true);
+        pickedFascias.add(index, repickedGroup);
+        sequencer.setSequencedFascias(sequencer.getToBeSequenced().getOrderFascia());
+        logger.warning("System: Picker " + picker.getName()
+            + " repick Orders with request ID "
+            + sequencer.getToBeSequenced().getRequestId());
+        logger.info("Picker " + picker.getName() + ": Orders with request ID "
+            + sequencer.getToBeSequenced().getRequestId()
+            + " is now repicked correctly.");
+        break;
       }
-      break;
     }
   }
 
@@ -338,7 +321,6 @@ public class Reader {
             logger.info("Sequencer " + parts[1] + " is ready");
 
           } else if (parts[2].equals("sequences")) {
-            int index = 0;
             for (Sequencer oldSequencer : sequencers) {
               if (oldSequencer.getName().equals(parts[1])) {
                 sequencer = oldSequencer;
@@ -358,30 +340,7 @@ public class Reader {
             }
             if (sequencer.getFascias().size() == 8) {
               if (!sequencer.isCorrect()) {
-                logger.warning(
-                    "System: Orders with request ID " + sequencer.getToBeSequenced().getRequestId()
-                        + " were found to have an incorrect fascia received by " + "sequencer "
-                        + sequencer.getName() + ".");
-                logger.warning("System: This set of fascias are thrown away.");
-                for (FasciaGroup group : pickedFascias) {
-                  if (group.getRequestId() == sequencer.getToBeSequenced().getRequestId()) {
-                    index = pickedFascias.indexOf(group);
-                    pickedFascias.remove(group);
-                    FasciaGroup repickedGroup =
-                        new FasciaGroup(sequencer.getToBeSequenced().getOrderFascia(),
-                            sequencer.getToBeSequenced().getRequestId());
-                    repickedGroup.setSequenced(true);
-                    pickedFascias.add(index, repickedGroup);
-                    sequencer.setSequencedFascias(sequencer.getToBeSequenced().getOrderFascia());
-                    logger.warning("System: Picker " + pickers.get(0).getName()
-                        + " repick Orders with request ID "
-                        + sequencer.getToBeSequenced().getRequestId());
-                    logger.info("Picker " + pickers.get(0).getName() + ": Orders with request ID "
-                        + sequencer.getToBeSequenced().getRequestId()
-                        + " is now repicked correctly.");
-                    break;
-                  }
-                }
+                reader.fixSequencingError(sequencer, pickedFascias, pickers.get(0));
               } else {
                 logger.info("System: Orders with request ID "
                     + sequencer.getToBeSequenced().getRequestId() + " are sequenced.");

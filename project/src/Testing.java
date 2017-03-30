@@ -53,7 +53,7 @@ public class Testing {
     assertEquals(30, fascia1.fasciaCount);
     
     sequencer.rescan(fascia2.getSku(), fascias, picker);
-    assertEquals(sequencer.getRescannedSKUs().get(0), "123");
+    assertEquals(sequencer.getRescannedSKUs().get(0), "124");
   }
     
   @Test
