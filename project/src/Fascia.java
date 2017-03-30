@@ -16,7 +16,7 @@ public class Fascia {
   /** True if the fascia is a front fascia, false if it's a rear fascia. */
   private boolean front;
 
-  /** The number of this Fascia currently available */
+  /** The number of this Fascia currently available. */
   public int fasciaCount;
 
   /**
