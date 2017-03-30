@@ -14,10 +14,12 @@ public abstract class Worker {
   protected ArrayList<String> rescannedSKUs = new ArrayList<String>();
   
   /** Order to be processed. */
-  private Order toBeProcessed;
+  protected Order toBeProcessed;
 
   /** Initialize a generic warehouse worker. */
-  public Worker() {}
+  public Worker(String name) {
+    this.name = name;
+  }
 
   /** Get the worker's name. */
   public String getName() {

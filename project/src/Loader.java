@@ -5,19 +5,11 @@ import java.util.ArrayList;
  */
 public class Loader extends Worker {
 
-  /** The order to be loaded */
-  private Order toBeLoaded;
-
-//   public void setName(String name) {
-//   this.name = name;
-//   }
-
-
   /**
    * Initializes a loader.
    */
   public Loader(String name) {
-    this.name = name;
+    super(name);
   }
 
   /**
@@ -39,7 +31,7 @@ public class Loader extends Worker {
    */
   public void rescan(String sku, ArrayList<Fascia> allFascia, Picker picker) {
     int index = rescannedSKUs.size();
-    ArrayList<Fascia> fascias = toBeLoaded.getOrderFascia();
+    ArrayList<Fascia> fascias = toBeProcessed.getOrderFascia();
     if (fascias.get(index).getSku().equals(sku)) {
       logger.info("Sequencer " + this.name + ": Fascia with SKU " + sku + " scanned.");
       rescannedSKUs.add(sku);

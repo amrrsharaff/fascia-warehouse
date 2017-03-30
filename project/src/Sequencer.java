@@ -7,8 +7,7 @@ public class Sequencer extends Worker {
 
   /** The inventory of the sequencer. */
   private ArrayList<Fascia> sequencedFascias = new ArrayList<Fascia>();
-  /** The fascias to be sequenced. */
-  private Order toBeSequenced;
+
   private boolean correct;
 
   public void setSequencedFascias(ArrayList<Fascia> sequencedFascias) {
@@ -23,21 +22,21 @@ public class Sequencer extends Worker {
    * Constructs a new Sequencer.
    */
   public Sequencer(String name) {
-    this.name = name;
+    super(name);
     setCorrect(true);
   }
 
-  public void setToBeProcessed(Order toBeSequenced) {
-    this.toBeSequenced = toBeSequenced;
-  }
+//  public void setToBeProcessed(Order toBeSequenced) {
+//    this.toBeSequenced = toBeSequenced;
+//  }
 
   public ArrayList<Fascia> getFascias() {
     return sequencedFascias;
   }
 
-  public Order getToBeProcessed() {
-    return toBeSequenced;
-  }
+//  public Order getToBeProcessed() {
+//    return toBeSequenced;
+//  }
 
  
 
