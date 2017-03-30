@@ -15,7 +15,7 @@ Order S Black
 Order SES Black
 Order S White
 Picker Bob ready
-Picker Alice pick 22
+Picker Alice pick 21
 Picker Bob pick 9
 Picker Alice pick 43
 Picker Bob pick 10
@@ -139,7 +139,7 @@ Sequencer Heather sequences 35
 Sequencer Heather sequences 36
 Sequencer Heather sequences 41
 Sequencer Heather sequences 42
-Sequencer Heather sequences 41
+Sequencer Heather sequences 40
 Sequencer Heather sequences 42
 Sequencer Heather rescans 45
 Sequencer Heather rescans 46
