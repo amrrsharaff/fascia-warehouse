@@ -76,6 +76,7 @@ public class Reader {
         String[] parts = newLine.split(",");
         String location = parts[0] + parts[1] + parts[2] + parts[3];
         String sku = parts[4];
+        // Check for matching SKUs.
         for (Fascia fascia : fascias) {
           if (fascia.getSku() == sku) {
             fascia.setLocation(location);
@@ -135,6 +136,7 @@ public class Reader {
             + sequencer.getName() + ".");
     logger.warning("System: This set of fascias are thrown away.");
     for (FasciaGroup group : fascias) {
+      // If they have the same ID, remove the group, and re-pick.
       if (group.getRequestId() == sequencer.getToBeProcessed().getRequestId()) {
         index = fascias.indexOf(group);
         fascias.remove(group);
@@ -174,13 +176,25 @@ public class Reader {
     }
     Reader reader = new Reader();
     int nextGroup = 0;
+    
+    // All sets of orders in the system.
     ArrayList<Order> groups = new ArrayList<>();
+    
+    // All fascias in the system.
     ArrayList<Fascia> fascias = new ArrayList<>();
-    ArrayList<ArrayList<String>> orders = new ArrayList<>();
-    ArrayList<Picker> pickers = new ArrayList<>();
+    
+    // All groups of fascias that have been picked.
     ArrayList<FasciaGroup> pickedFascias = new ArrayList<>();
+   
+    // A single order that is received.
+    ArrayList<ArrayList<String>> orders = new ArrayList<>();
+    
+    // All pickers, sequencers, and loaders in the system.
+    ArrayList<Picker> pickers = new ArrayList<>();
     ArrayList<Sequencer> sequencers = new ArrayList<>();
     ArrayList<Loader> loaders = new ArrayList<>();
+    
+    
 
     File file1 = new File("../translation.csv"); // /Users/Omar/CSC207/group_0423/project
     File file2 = new File("../traversal_table.csv");
@@ -308,6 +322,7 @@ public class Reader {
               sequencer = new Sequencer(parts[1]);
               sequencers.add(sequencer);
             }
+            // Find the first FasciaGroup that is not sequenced.
             for (FasciaGroup tobeSequenced : pickedFascias) {
               if (tobeSequenced.isSequenced() == false) {
                 groupNumber = tobeSequenced.getRequestId();
@@ -315,25 +330,35 @@ public class Reader {
                 break;
               }
             }
+            // Set the order that the sequencer will work with.
             for (Order order : groups) {
               if (order.getRequestId() == groupNumber) {
                 Order orderSequenced = order;
                 sequencer.setToBeProcessed(orderSequenced);
               }
             }
+            // Reset the sequencer's variables.
             sequencer.setSequencedFascias(new ArrayList<Fascia>());
             sequencer.setRescannedSKUs(new ArrayList<String>());
             sequencer.setCorrect(true);
             logger.info("System: Sequencer " + parts[1] + " is ready");
 
           } else if (parts[2].equals("sequences")) {
+        	// Find the sequencer that will be sequencing.
             for (Sequencer oldSequencer : sequencers) {
               if (oldSequencer.getName().equals(parts[1])) {
                 sequencer = oldSequencer;
               }
             }
+            
             Fascia fasciaSeq =
+<<<<<<< HEAD
                 sequencer.getToBeProcessed().getOrderFascia().get(sequencer.getSequencedFascias().size());
+=======
+                sequencer.getToBeProcessed().getOrderFascia().get(sequencer.getFascias().size());
+            
+            // Sequence the fascia by comparing the SKU of the original order and the picked one.
+>>>>>>> 5db4f5898149375871273a13596c680d023efd59
             if (parts[3].equals(fasciaSeq.getSku())) {
               sequencer.getSequencedFascias().add(fasciaSeq);
               logger.info("System: Sequencer " + sequencer.getName() + " sequenced fascia with sku "
@@ -344,7 +369,12 @@ public class Reader {
               logger.info("System: Sequencer " + sequencer.getName() + " sequenced fascia with sku "
                   + fasciaSeq.getSku());
             }
+<<<<<<< HEAD
             if (sequencer.getSequencedFascias().size() == 8) {
+=======
+            // Size 8 means that all fascias were sequenced.
+            if (sequencer.getFascias().size() == 8) {
+>>>>>>> 5db4f5898149375871273a13596c680d023efd59
               if (!sequencer.isCorrect()) {
                 reader.fixError(sequencer, pickedFascias, pickers.get(0));
               } else {
@@ -385,6 +415,7 @@ public class Reader {
                 break;
               }
             }
+            // Find the first order required to be loaded.
             for (Order order : groups) {
               if (order.getRequestId() == groupNumber) {
                 Order orderLoaded = order;
