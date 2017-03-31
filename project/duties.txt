@@ -1,11 +1,20 @@
 The duties of the members.
 Syed Naqvi:
+(Phase 1)
 1) Participation in the discussion of the direction of the project. 
 2) Wrote the initial copy of Fascia.java, Sequencer.java, Order.java, and Replenisher.java. 
 3) Debugging and fixes to all the classes with Amr. 
 4) Wrote doc strings for all the classes.
 5) Wrote some of the comments for the classes.
 6) Made the UML.
+
+(Phase 2)
+1) Created the initial work required for rescan.
+2) Helped deciding on what changes needed to be made.
+3) Added comments helping to clarify some thing in Reader.
+4) Helped with the debugging process and fixed some minor errors.
+5) Updated the UML to match the updated code.
+
 
 Amr Sharaf: 
 1) Participation in the discussion of the direction of the project. 
