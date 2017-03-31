@@ -17,4 +17,7 @@ Amr Sharaf:
 7) Made help.txt.
 Revised by Amr Sharaf
 
-Omar Sherif: 
+Omar Sherif:
+1) Participated in the discussion of the project.
+2) Helped solve the changes that needed to be implemented in phase 2.
+3)  
