@@ -13,7 +13,7 @@ public class Picker {
   private ArrayList<Fascia> pickedFascias = new ArrayList<Fascia>();
 
   /** Helps the Picker find the appropriate order to work with. */
-  public int groupIndex;
+  private int groupIndex;
 
   /**
    * Initializes a new Picker.
@@ -24,7 +24,7 @@ public class Picker {
   public Picker(String name, int groupIndex) {
     ready = true;
     this.name = name;
-    this.groupIndex = groupIndex;
+    this.setGroupIndex(groupIndex);
   }
 
   /**
@@ -76,5 +76,13 @@ public class Picker {
         pickedFascias.add(fascia);
       }
     }
+  }
+
+  public int getGroupIndex() {
+	return groupIndex;
+  }
+
+  public void setGroupIndex(int groupIndex) {
+	this.groupIndex = groupIndex;
   }
 }

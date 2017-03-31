@@ -238,7 +238,7 @@ public class Reader {
                 oldPicker.clearFascias();
                 // nextGroup is used to find the next order
                 // within groups
-                oldPicker.groupIndex = nextGroup;
+                oldPicker.setGroupIndex(nextGroup);
                 nextGroup++;
               }
             }
@@ -254,7 +254,7 @@ public class Reader {
             for (Picker oldPicker : pickers) {
               if (oldPicker.getName().equals(parts[1])) {
                 // tell picker to pick fascia
-                Order toBePicked = groups.get(oldPicker.groupIndex);
+                Order toBePicked = groups.get(oldPicker.getGroupIndex());
                 toBePicked.findFascia(fascias);
                 // pick fascia statement, actual picking happens after system confirmation.
                 logger.info("System: Fascia with SKU number " + parts[3] + " was picked by picker "
