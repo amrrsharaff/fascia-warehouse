@@ -111,13 +111,8 @@ public class Reader {
         for (Fascia fascia : fascias) {
           // If initial.csv has the amount for a fascia, have the
           // count to be that amount.
-<<<<<<< HEAD
-          if (fascia.getLocation().equals(location)) {
-            fascia.fasciaCount = amount;
-=======
           if (fascia.getLocation() == location) {
             fascia.setFasciaCount(amount);
->>>>>>> 96547104743060ac2e674c1f697732eaa78ff1ec
           }
         }
 

@@ -302,8 +302,6 @@ public class Testing {
     assertEquals(fascia.getModelNumber(), fascias.get(0).getModelNumber());
     assertEquals(fascia.getSku(), fascias.get(0).getSku());
     reader.setLocations(file2, fascias);
-    for(Fascia fascia1: fascias){
-      System.out.println(fascia1.getLocation());
-    }
+    
   }
 }
