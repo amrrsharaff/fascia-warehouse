@@ -5,8 +5,8 @@ java Reader
 
 
 NOTES:
-1- The 16orders.txt was edited so now it does not have the phase where the picker goes to marshalling.
-2- The numbers in the 16orders.txt file represent the fascia number to be picked not the SKU.
-3- To trigger an error in the code, you can change the number picked by the picker to another number between 1 and 8 inclusively. If you change the numbers to some numbers outside the scope the program might not work.
-4- The system involves only one loader since the warehouse only needs one loader which will use the forklift to carry the fascias into the truck.
-5- Make sure that you have the Java unit library files downloaded before you run the tests.
+1- If you do not enter any command line arguments, the 16orders.txt file will be automatically read.
+2- If you do enter any command line arguments, make sure you put the file in the right place and provide the file path with it.
+3- The sequencer and the loader both rescan and fix any errors they find while rescanning.
+4- During sequencing, had there been an error, it is saved in the system and after sequencing all 8 fascias of the request, the group of fascias are thrown away and the right ones are repicked by any picker available.
+5- To run tests, make sure you add the files of junit to the path of the project. If those files are not saved on your computer, I saved copies of them in the repository.
