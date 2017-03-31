@@ -16,7 +16,8 @@ Syed Naqvi:
 5) Updated the UML to match the updated code.
 
 
-Amr Sharaf: 
+Amr Sharaf:
+(Phase 1) 
 1) Participation in the discussion of the direction of the project. 
 2) Wrote the initial copy of Picker.java, Loader.java, FasciaGroup.java, and Reader.java.
 3) Debugging and fixes to all the classes.
@@ -24,7 +25,15 @@ Amr Sharaf:
 5) Made appropriate print statements for events.
 6) Made all the tests. 
 7) Made help.txt.
-Revised by Amr Sharaf
+(Phase 2)
+1) Created all test methods except testPicker
+2) Fixed check style warnings in Reader.java
+3) Changed the picker conditions in Reader.java to read SKUs instead of indexes
+3) Debugged and fixed some errors in the code.
+4) Edited the print statements to match the requirements for Phase 2.
+5) Edited the sequencer conditions in Reader.java to allow for rescanning as well as the loader conditions to allow for scanning and rescanning
+6) Provided the methods in Sequencer and in Loader.java which were then transferred to Worker.java
+7) Added function FixError in main in Reader.java and wrote the docstrings for it.
 
 Omar Sherif: 
 
