@@ -24,7 +24,7 @@ public class Replenisher {
   public void replenish(String location, ArrayList<Fascia> allFascia) {
     for (Fascia fascia : allFascia) {
       if (location == fascia.getLocation()) {
-        fascia.fasciaCount = 30;
+        fascia.setFasciaCount(30);
         logger.info("Fascia with location " + location + " was replenished");
       }
     }

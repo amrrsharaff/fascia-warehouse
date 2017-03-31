@@ -68,8 +68,8 @@ public class Picker {
     // we search for the fascia inside the order
     for (Fascia fascia : allFascias) {
       if (fascia.getSku().equals(sku)) {
-        fascia.fasciaCount -= 1;
-        if (fascia.fasciaCount <= 5) {
+        fascia.setFasciaCount(fascia.getFasciaCount() - 1);
+        if (fascia.getFasciaCount() <= 5) {
           Replenisher replenisher = new Replenisher();
           replenisher.replenish(fascia.getLocation(), allFascias);
         }
