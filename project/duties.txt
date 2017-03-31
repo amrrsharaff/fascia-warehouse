@@ -35,8 +35,6 @@ Amr Sharaf:
 6) Provided the methods in Sequencer and in Loader.java which were then transferred to Worker.java
 7) Added function FixError in main in Reader.java and wrote the docstrings for it.
 
-Omar Sherif: 
-
 Michael Brendan Taylor-James (joined in phase 2):
 1) Added testing method testPicker.
 2) Fixed some checkstyle warnings.
@@ -45,10 +43,13 @@ Michael Brendan Taylor-James (joined in phase 2):
 5) Implemented rescan method in the worker abstract class.
 6) Wrote if-statements that allows arguments to be used in the command line.
 
-<<<<<<< HEAD
 Omar Sherif:
-1) Participated in the discussion of the project.
+1) Participated in the discussion of the project and the approach to the needed changes in phase 2.
 2) Helped solve the changes that needed to be implemented in phase 2.
-3)  
-=======
->>>>>>> refs/remotes/origin/master
+3) Created Worker parent class to act as a superclass to Sequencer and Loader.
+4) Made some docstrings for methods in all classes.
+5) Cleaned up some of the code by fixing design aspects such as spacing and indenting.
+6) Removed duplicate code from Loader and Sequencer
+7) Included comments in methods to ensure clarity of code.
+8) Was responsible for all aspects of logging (console and file handling)
+9) Converted all print statements from phase 1 to log statements. 
