@@ -283,12 +283,20 @@ public class Testing {
     Order order = new Order(orders);
     sequencer.setToBeProcessed(order);
     sequencer.getToBeProcessed().findFascia(fascias);
-
     sequencer.setRescannedSkus(new ArrayList<String>());
     sequencer.rescan("1", picker);
     assertEquals(sequencer.getRescannedSkus().get(0), "123");
     sequencer.rescan("124", picker);
     assertEquals(sequencer.getRescannedSkus().get(1), "124");
+    FasciaGroup fasciaGroup = new FasciaGroup(fascias, 1);
+    FasciaGroup fasciaGroup2 = new FasciaGroup(fascias, 7);
+    ArrayList<FasciaGroup> groups = new ArrayList<>();
+    groups.add(fasciaGroup);
+    groups.add(fasciaGroup2);
+    Reader reader = new Reader();
+    reader.fixError(sequencer, groups, new Picker("James", 7));
+    assertFalse(fasciaGroup2.equals(groups.get(1)));
+    assertEquals(groups.get(1).getFascias(), sequencer.getToBeProcessed().getOrderFascia());
   }
   @Test
   public void testReader(){
@@ -309,6 +317,8 @@ public class Testing {
   }
   @Test
   public void testMain(){
+    //Since main is not specifically one part and is composed of logging and printing
+    //we test it by running it and checking whether the print statement with the skus are the desired ones
     String[] args = {};
     Reader.main(args);
   }
