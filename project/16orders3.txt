@@ -99,7 +99,7 @@ Loader Bill scans 4
 Loader Bill scans 43
 Loader Bill scans 44
 Loader Bill loads
-Picker Alice pick 2
+Picker Alice pick 1
 Picker Bob pick 41
 Picker Bob pick 42
 Sequencer Sue ready
@@ -119,7 +119,7 @@ Sequencer Sue rescans 45
 Sequencer Sue rescans 46
 Sequencer Sue rescans 1
 Sequencer Sue rescans 2
-Picker Bob pick 41
+Picker Bob pick 24
 Replenisher Ruby replenish A 1 1 2
 Picker Bob pick 42
 Loader Bill ready
