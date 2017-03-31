@@ -81,7 +81,7 @@ public class Reader {
         String sku = parts[4];
         // Check for matching SKUs.
         for (Fascia fascia : fascias) {
-          if (fascia.getSku() == sku) {
+          if (fascia.getSku().equals(sku)) {
             fascia.setLocation(location);
           }
         }
@@ -111,7 +111,7 @@ public class Reader {
         for (Fascia fascia : fascias) {
           // If initial.csv has the amount for a fascia, have the
           // count to be that amount.
-          if (fascia.getLocation() == location) {
+          if (fascia.getLocation().equals(location)) {
             fascia.fasciaCount = amount;
           }
         }

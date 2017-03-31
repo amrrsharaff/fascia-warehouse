@@ -1,4 +1,6 @@
 import static org.junit.Assert.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 import org.junit.Test;
@@ -287,5 +289,21 @@ public class Testing {
     assertEquals(sequencer.getRescannedSkus().get(0), "123");
     sequencer.rescan("124", picker);
     assertEquals(sequencer.getRescannedSkus().get(1), "124");
+  }
+  @Test(expected=FileNotFoundException.class)
+  public void testReader(){
+    Reader reader = new Reader();
+    File file1 = new File("../translation.csv");
+    File file2 = new File("../traversal_table.csv");
+    reader.readFascias(file1, fascias);
+    Fascia fascia = new Fascia("White", "S", "1", true);
+    fascia.fasciaCount = 12;
+    assertEquals(fascia.getColour(), fascias.get(0).getColour());
+    assertEquals(fascia.getModelNumber(), fascias.get(0).getModelNumber());
+    assertEquals(fascia.getSku(), fascias.get(0).getSku());
+    reader.setLocations(file2, fascias);
+    for(Fascia fascia1: fascias){
+      System.out.println(fascia1.getLocation());
+    }
   }
 }
