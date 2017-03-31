@@ -290,18 +290,26 @@ public class Testing {
     sequencer.rescan("124", picker);
     assertEquals(sequencer.getRescannedSkus().get(1), "124");
   }
-  @Test(expected=FileNotFoundException.class)
+  @Test
   public void testReader(){
     Reader reader = new Reader();
     File file1 = new File("../translation.csv");
     File file2 = new File("../traversal_table.csv");
+    File file3 = new File("../initial.csv");
     reader.readFascias(file1, fascias);
     Fascia fascia = new Fascia("White", "S", "1", true);
-    fascia.fasciaCount = 12;
+    fascia.setFasciaCount(12);
     assertEquals(fascia.getColour(), fascias.get(0).getColour());
     assertEquals(fascia.getModelNumber(), fascias.get(0).getModelNumber());
     assertEquals(fascia.getSku(), fascias.get(0).getSku());
     reader.setLocations(file2, fascias);
-    
+    assertEquals(fascias.get(0).getLocation(), "A000");
+    reader.setCount(file3, fascias);
+    assertEquals(fascias.get(0).getFasciaCount(), 30);
+  }
+  @Test
+  public void testMain(){
+    String[] args = {};
+    Reader.main(args);
   }
 }
