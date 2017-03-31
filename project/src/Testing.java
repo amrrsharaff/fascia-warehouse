@@ -44,11 +44,11 @@ public class Testing {
 
     fascia1.setLocation("A000");
     for (int i = 0; i < invertedFascias.size(); i++) {
-      invertedFascias.get(i).fasciaCount = 5;
+      invertedFascias.get(i).setFasciaCount(5);
     }
     Replenisher replenisher = new Replenisher();
     replenisher.replenish("A000", invertedFascias);
-    assertEquals(30, fascia1.fasciaCount);
+    assertEquals(30, fascia1.getFasciaCount());
 
     assertEquals(sequencer.getSequencedFascias().size(), 0);
     sequencer.setSequencedFascias(fascias);

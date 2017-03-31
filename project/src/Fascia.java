@@ -17,7 +17,7 @@ public class Fascia {
   private boolean front;
 
   /** The number of this Fascia currently available. */
-  public int fasciaCount;
+  private int fasciaCount;
 
   /**
    * Initializes a Fascia.
@@ -32,7 +32,7 @@ public class Fascia {
     this.modelNumber = modelNumber;
     this.sku = sku;
     this.setFront(front);
-    this.fasciaCount = 30;
+    this.setFasciaCount(30);
   }
 
   public String getModelNumber() {
@@ -62,5 +62,13 @@ public class Fascia {
 
   public void setFront(boolean front) {
     this.front = front;
+  }
+
+  public int getFasciaCount() {
+	return fasciaCount;
+  }
+
+  public void setFasciaCount(int fasciaCount) {
+	this.fasciaCount = fasciaCount;
   }
 }

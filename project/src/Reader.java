@@ -112,7 +112,7 @@ public class Reader {
           // If initial.csv has the amount for a fascia, have the
           // count to be that amount.
           if (fascia.getLocation() == location) {
-            fascia.fasciaCount = amount;
+            fascia.setFasciaCount(amount);
           }
         }
 
