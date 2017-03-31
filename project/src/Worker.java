@@ -8,13 +8,13 @@ public abstract class Worker {
   protected static final Logger logger = Logger.getLogger(Reader.class.getName());
 
   /** The name of the Sequencer. */
-  protected String name;
+  private String name;
 
   /** The fascias to be rescanned. */
-  protected ArrayList<String> rescannedSkus = new ArrayList<String>();
+  private ArrayList<String> rescannedSkus = new ArrayList<String>();
 
   /** Order to be processed. */
-  protected Order toBeProcessed;
+  private Order toBeProcessed;
 
   /**
    * Initialize a generic warehouse worker.

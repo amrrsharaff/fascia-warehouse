@@ -13,7 +13,7 @@ public class Loader extends Worker {
   /** Load the order onto the truck. */
   public void load() {
     // Loader replies saying the picking request is laoded.
-    logger.info("Loader " + this.name + ": Picking request with id "
+    logger.info("Loader " + this.getName() + ": Picking request with id "
         + this.getToBeProcessed().getRequestId() + " is loaded.");
   }
 }
