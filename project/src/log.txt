@@ -1,0 +1,512 @@
+Mar 30, 2017 11:40:40 PM Reader readFascias
+INFO: System: All fascias available are recorded
+Mar 30, 2017 11:40:40 PM Reader setLocations
+INFO: System: All fascias' locations are now recorded
+Mar 30, 2017 11:40:40 PM Reader setCount
+INFO: System: The number of each type of fascia is now recorded
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: We received a set of 4 orders
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picker Alice is ready.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 37 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: We received a set of 4 orders
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 38 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 21 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: We received a set of 4 orders
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picker Bob is ready.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 22 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 9 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 43 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 10 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 29 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 44 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 30 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 3 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 43 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 44 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: All fascias in picking request number 2 were picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 4 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 43 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picker Alice is ready.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 43 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue is ready
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 37
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 38
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 21
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 22
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 43
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 44
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 43
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 44
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Orders with request ID 2 are sequenced.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 37 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 38 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 21 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 22 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 43 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 44 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 43 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 44 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 44 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: Loader Bill is ready
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 38.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 38 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+WARNING: System: Fascias unmatched, there was an error in picking.
+Mar 30, 2017 11:40:40 PM Worker rescan
+WARNING: System: Fascia with SKU 37 was incorrectly replaced by Fascia with SKU 38.
+Mar 30, 2017 11:40:40 PM Worker rescan
+WARNING: System: Picker Alice, repick the Fascia with SKU 37.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Picker Alice: Fascia with SKU 37 repicked.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 38.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 38 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 21.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 21 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 22.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 22 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 43.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 43 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 44.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 44 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 43.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 43 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 44.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 44 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, load the picking request with id 2.
+Mar 30, 2017 11:40:40 PM Loader load
+INFO: Loader Bill: Picking request with id 2 is loaded.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: We received a set of 4 orders
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 44 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: All fascias in picking request number 3 were picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 41 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 42 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picker Bob is ready.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 45 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 45 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 46 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 46 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 35 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Heather is ready
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 9
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 10
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 29
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 30
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 3
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 4
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 43
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 44
+Mar 30, 2017 11:40:40 PM Reader fixError
+WARNING: System: Orders with request ID 3 were found to have an incorrect fascia received by sequencer Heather.
+Mar 30, 2017 11:40:40 PM Reader fixError
+WARNING: System: This set of fascias are thrown away.
+Mar 30, 2017 11:40:40 PM Reader fixError
+WARNING: System: Picker Alice repick Orders with request ID 3
+Mar 30, 2017 11:40:40 PM Reader fixError
+INFO: Picker Alice: Orders with request ID 3 is now repicked correctly.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 9 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 10 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 29 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 30 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 3 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 4 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 43 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 44 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 36 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 1 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: Loader Bill is ready
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 9.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 9 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 10.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 10 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 29.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 29 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 30.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 30 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 3.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 3 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 4.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 4 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 43.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 43 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 44.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 44 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, load the picking request with id 3.
+Mar 30, 2017 11:40:40 PM Loader load
+INFO: Loader Bill: Picking request with id 3 is loaded.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 2 was picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: All fascias in picking request number 4 were picked by picker Alice
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 41 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 42 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue is ready
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 43
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 44
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 41
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 42
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 45
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 46
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 1
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Sequencer Sue sequenced fascia with sku 2
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Orders with request ID 4 are sequenced.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 43 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 44 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 41 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 42 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 45 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 46 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 1 rescanned.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Sequencer Sue: Fascia with SKU 2 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 41 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascias at location A112 should be replenished.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: Replenisher Ruby: replenished fascia at A112
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Fascia with SKU number 42 was picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Picked the correct fascia
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: All fascias in picking request number 5 were picked by picker Bob
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: Loader Bill is ready
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 43.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 43 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 44.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 44 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 41.
+Mar 30, 2017 11:40:40 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 41 rescanned.
+Mar 30, 2017 11:40:40 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 42.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 42 rescanned.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 45.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 45 rescanned.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 46.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 46 rescanned.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 1.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 1 rescanned.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 2.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 2 rescanned.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Loader Bill, load the picking request with id 4.
+Mar 30, 2017 11:40:41 PM Loader load
+INFO: Loader Bill: Picking request with id 4 is loaded.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Sequencer Heather is ready
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 45
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 46
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 35
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 36
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 41
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 42
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 41
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Sequencer Heather sequenced fascia with sku 42
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Orders with request ID 5 are sequenced.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 45 rescanned.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 46 rescanned.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 35 rescanned.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 36 rescanned.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 41 rescanned.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 42 rescanned.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 41 rescanned.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Sequencer Heather: Fascia with SKU 42 rescanned.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: Loader Bill is ready
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 45.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 45 rescanned.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 46.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 46 rescanned.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 35.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 35 rescanned.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 36.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 36 rescanned.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 42.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 42 rescanned.
+Mar 30, 2017 11:40:41 PM Worker rescan
+WARNING: System: Fascias unmatched, there was an error in picking.
+Mar 30, 2017 11:40:41 PM Worker rescan
+WARNING: System: Fascia with SKU 41 was incorrectly replaced by Fascia with SKU 42.
+Mar 30, 2017 11:40:41 PM Worker rescan
+WARNING: System: Picker Alice, repick the Fascia with SKU 41.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Picker Alice: Fascia with SKU 41 repicked.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 42.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 42 rescanned.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 41.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 41 rescanned.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Loader Bill, scan the fascia with SKU 42.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Loader Bill: Fascia with SKU 42 rescanned.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: Loader Bill, load the picking request with id 5.
+Mar 30, 2017 11:40:41 PM Loader load
+INFO: Loader Bill: Picking request with id 5 is loaded.
+Mar 30, 2017 11:40:41 PM Reader main
+INFO: System: All events are done.
+Mar 30, 2017 11:40:41 PM Replenisher replenish
+INFO: Fascia with location A000 was replenished
+Mar 30, 2017 11:40:41 PM Replenisher replenish
+INFO: Fascia with location  was replenished
+Mar 30, 2017 11:40:41 PM Reader readFascias
+INFO: System: All fascias available are recorded
+Mar 30, 2017 11:40:41 PM Reader setLocations
+INFO: System: All fascias' locations are now recorded
+Mar 30, 2017 11:40:41 PM Reader setCount
+INFO: System: The number of each type of fascia is now recorded
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Sequencer Amr: Fascia with SKU 1 rescanned.
+Mar 30, 2017 11:40:41 PM Worker rescan
+WARNING: System: Fascias unmatched, there was an error in picking.
+Mar 30, 2017 11:40:41 PM Worker rescan
+WARNING: System: Fascia with SKU 123 was incorrectly replaced by Fascia with SKU 1.
+Mar 30, 2017 11:40:41 PM Worker rescan
+WARNING: System: Picker Default, repick the Fascia with SKU 123.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Picker Default: Fascia with SKU 123 repicked.
+Mar 30, 2017 11:40:41 PM Worker rescan
+INFO: Sequencer Amr: Fascia with SKU 124 rescanned.
+Mar 30, 2017 11:40:41 PM Reader fixError
+WARNING: System: Orders with request ID 7 were found to have an incorrect fascia received by sequencer Amr.
+Mar 30, 2017 11:40:41 PM Reader fixError
+WARNING: System: This set of fascias are thrown away.
+Mar 30, 2017 11:40:41 PM Reader fixError
+WARNING: System: Picker James repick Orders with request ID 7
+Mar 30, 2017 11:40:41 PM Reader fixError
+INFO: Picker James: Orders with request ID 7 is now repicked correctly.
