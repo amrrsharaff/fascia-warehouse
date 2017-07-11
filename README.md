@@ -5,7 +5,7 @@ The project was made by me and three other students and we used git to maintain 
 -The project had two stages where index.html was the first assignment and phase2.html was the second one with different requirements.
 -Design.pdf contains a UML diagram of the project.
 -translation.csv and traversal_table.csv are files which contain information which we use in the project in the correct format.
-
+-This project includes Agile software development, design patterns and unit testing. For more detailed info go to project/src/(testing, classes)
 To run the program go to the project folder from the terminal and run these two commands
 cd src
 javac Reader.java
